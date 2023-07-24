@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './Navigation.css';
 import { useLocation, Link } from "react-router-dom";
-import Menu from "../../../images/menu.svg";
-import Close from "../../../images/close.svg";
-import Profile from "../../../images/profile.svg";
+import Menu from '../../../images/menu.svg';
+import Close from '../../../images/close.svg';
+import Profile from '../../../images/profile.svg';
 
 function Navigation() {
   const [showMenu, setShowMenu] = React.useState(false);
@@ -39,7 +39,7 @@ function Navigation() {
                 to="/saved-movies"
                 onClick={handleShowMenu}
               >
-                Сохраненные фильмы
+                Сохранённые фильмы
               </Link>
             </div>
             <div className="nav__profile">

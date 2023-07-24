@@ -1,7 +1,10 @@
+import './Main.css';
+import Promo from "../Promo/Promo";
+
 function Main() {
   return (
     <main className="content">
-      <h1>Main</h1>
+      <Promo/>
     </main>
   )
 }

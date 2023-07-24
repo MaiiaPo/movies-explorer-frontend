@@ -6,6 +6,10 @@
   padding: 0 14px;
 }
 
+.header_backgroundColor {
+  background-color: #F3C1F8;
+}
+
 .header__logo {
   width: 38px;
 }
