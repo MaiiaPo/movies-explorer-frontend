@@ -13,3 +13,15 @@
 .header__logo {
   width: 38px;
 }
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header {
+    padding: 0 70px;
+  }
+}
