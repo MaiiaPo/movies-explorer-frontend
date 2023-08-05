@@ -7,6 +7,7 @@ import Profile from '../Profile/Profile';
 import Login from '../Login/Login';
 import Register from '../Register/Register'
 import Header from '../сommon/Header/Header'
+import Footer from "../сommon/Footer/Footer";
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signup" element={<Register />} />
         </Routes>
       </main>
+      <Footer/>
     </div>
   );
 }

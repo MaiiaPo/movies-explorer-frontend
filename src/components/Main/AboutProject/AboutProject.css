@@ -1,8 +1,5 @@
-.about-project {
-  padding: 70px 18px 70px;
-}
-
 .about-project__description {
+  display: grid;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -31,7 +28,8 @@
 }
 
 .about-project__duration {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   padding-top: 60px;
 }
 
@@ -47,13 +45,11 @@
 }
 
 .about-project__duration-weeks_one {
-  width: 100px;
   background-color: #000;
   color: #fff;
 }
 
 .about-project__duration-weeks_four {
-  width: 184px;
   background-color: #F2F2F2;
 }
 
@@ -73,4 +69,38 @@
   line-height: normal;
 }
 
+@media screen and (min-width: 768px) {
+  .about-project {
+    padding: 90px 50px;
+  }
+
+  .about-project__description {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+  }
+
+  .about-project__description-item {
+    max-width: 319px;
+  }
+
+  .about-project__description-title {
+    font-size: 20px;
+    letter-spacing: -0.8px;
+  }
+
+  .about-project__description-text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .about-project {
+    padding: 110px 70px;
+  }
+
+  .about-project__description-item {
+    max-width: 550px;
+  }
+}
 

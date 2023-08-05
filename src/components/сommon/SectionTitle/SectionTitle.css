@@ -6,4 +6,12 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.72px;
+  border-bottom: 1px solid #000;
+}
+
+@media screen and (min-width: 768px) {
+  .section-title__title {
+    font-size: 22px;
+    letter-spacing: -0.88px;
+  }
 }
