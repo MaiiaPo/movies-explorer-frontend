@@ -1,5 +1,5 @@
 import './App.css';
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes, useLocation} from 'react-router-dom';
 import Main from '../Main/Main/Main';
 import Movies from '../Movies/Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies/SavedMovies';
@@ -9,6 +9,8 @@ import Register from '../Register/Register'
 import Header from '../сommon/Header/Header'
 import Footer from "../сommon/Footer/Footer";
 function App() {
+  const location = useLocation();
+
   return (
     <div className="App">
       <Header />
@@ -22,7 +24,7 @@ function App() {
           <Route path="/signup" element={<Register />} />
         </Routes>
       </main>
-      <Footer/>
+      {location.pathname !== '/signin' && location.pathname !== '/signup' && <Footer/>}
     </div>
   );
 }

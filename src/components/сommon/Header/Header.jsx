@@ -4,14 +4,18 @@ import Logo from '../../../images/logo.svg';
 import Navigation from "../Navigation/Navigation";
 
 function Header() {
-  let location = useLocation();
+  const location = useLocation();
 
   return (
-    <header className={`header ${location.pathname === '/' ? 'header_backgroundColor' : ''}`}>
+    <header
+      className={`header 
+        ${location.pathname === '/' ? 'header_backgroundColor' : ''} 
+        ${location.pathname === '/signin' || location.pathname === '/signup' ? 'header_center' : ''}`}
+    >
       <Link className="header__route" to="/">
         <img className="header__logo" src={Logo} alt="Логотип" />
       </Link>
-      <Navigation/>
+      {location.pathname !== '/signin' && location.pathname !== '/signup' && <Navigation/>}
     </header>
   )
 }

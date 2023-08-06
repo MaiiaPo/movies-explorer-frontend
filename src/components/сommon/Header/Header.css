@@ -6,6 +6,11 @@
   padding: 0 14px;
 }
 
+.header_center {
+  justify-content: center;
+  padding-top: 56px;
+}
+
 .header_backgroundColor {
   background-color: #F3C1F8;
 }
