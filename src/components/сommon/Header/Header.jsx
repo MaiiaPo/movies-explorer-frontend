@@ -8,9 +8,7 @@ function Header() {
 
   return (
     <header
-      className={`header 
-        ${location.pathname === '/' ? 'header_backgroundColor' : ''} 
-        ${location.pathname === '/signin' || location.pathname === '/signup' ? 'header_center' : ''}`}
+      className={`header ${location.pathname === '/' ? 'header_backgroundColor' : ''}` }
     >
       <Link className="header__route" to="/">
         <img className="header__logo" src={Logo} alt="Логотип" />

@@ -1,5 +1,6 @@
 import './Auth.css';
 import { Link } from "react-router-dom";
+import Logo from '../../images/logo.svg';
 
 function Auth({title, name, children, button, buttonValue, isRegister}) {
   function handleSubmit(evt) {
@@ -7,6 +8,9 @@ function Auth({title, name, children, button, buttonValue, isRegister}) {
   }
   return (
     <main className="auth">
+      <Link className="auth__route" to="/">
+        <img className="auth__logo" src={Logo} alt="Логотип" />
+      </Link>
       <h1 className="auth__title">{title}</h1>
       <form
         className="auth__form"

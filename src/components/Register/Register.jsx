@@ -20,6 +20,9 @@ function Register() {
         maxLength="40"
         required
       />
+      <span className={`auth__input-error`}>
+        Что-то пошло не так...
+      </span>
       <label className="auth__label" htmlFor="email">
         E-mail
       </label>
@@ -42,6 +45,9 @@ function Register() {
         maxLength="20"
         required
       />
+      <span className={`auth__input-error`}>
+        Что-то пошло не так...
+      </span>
     </Auth>
   )
 }

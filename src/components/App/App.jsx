@@ -10,7 +10,7 @@ import Header from '../сommon/Header/Header'
 import NotFound from "../NotFound/NotFound";
 function App() {
   const location = useLocation();
-  const path = ['/', '/movies', '/saved-movies', '/profile', '/signin', '/signup'];
+  const path = ['/', '/movies', '/saved-movies', '/profile'];
 
   return (
     <div className="App">
