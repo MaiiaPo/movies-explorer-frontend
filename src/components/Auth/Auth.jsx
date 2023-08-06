@@ -1,7 +1,7 @@
 import './Auth.css';
 import { Link } from "react-router-dom";
 
-function Auth({title, name, children, buttonValue, isRegister}) {
+function Auth({title, name, children, button, buttonValue, isRegister}) {
   function handleSubmit(evt) {
     evt.preventDefault();
   }
@@ -15,7 +15,7 @@ function Auth({title, name, children, buttonValue, isRegister}) {
       >
         <fieldset className="form__set">
           {children}
-          <input type="submit" value={buttonValue} className="auth__submit"/>
+          {button && <input type="submit" value={buttonValue} className="auth__submit"/>}
         </fieldset>
       </form>
       {

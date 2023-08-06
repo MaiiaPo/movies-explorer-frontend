@@ -1,0 +1,34 @@
+.not-found {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  grid-template-rows: 50% 35%;
+}
+
+.not-found__error {
+  margin: 0;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-self: flex-end;
+}
+
+.not-found__text {
+  margin: 0;
+  padding-top: 10px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.not-found__back-button {
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

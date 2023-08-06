@@ -5,6 +5,7 @@ function Register() {
     <Auth
       title="Добро пожаловать!"
       name="register"
+      button={true}
       buttonValue="Зарегистрироваться"
       isRegister={true}
     >

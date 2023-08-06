@@ -7,13 +7,16 @@ import Profile from '../Profile/Profile';
 import Login from '../Login/Login';
 import Register from '../Register/Register'
 import Header from '../сommon/Header/Header'
-import Footer from "../сommon/Footer/Footer";
+import NotFound from "../NotFound/NotFound";
 function App() {
   const location = useLocation();
+  const path = ['/', '/movies', '/saved-movies', '/profile', '/signin', '/signup'];
 
   return (
     <div className="App">
-      <Header />
+      {path.includes(location.pathname) && (
+        <Header />
+      )}
       <main>
         <Routes>
           <Route path="/" element={<Main />} />
@@ -22,9 +25,9 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      {location.pathname !== '/signin' && location.pathname !== '/signup' && <Footer/>}
     </div>
   );
 }

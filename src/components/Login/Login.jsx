@@ -5,6 +5,7 @@ function Login() {
     <Auth
       title="Рады видеть!"
       name="login"
+      button={true}
       buttonValue="Войти"
       isRegister={false}
     >
