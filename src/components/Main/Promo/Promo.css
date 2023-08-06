@@ -24,30 +24,44 @@
   height: 230px;
   display: block;
   position: relative;
-  left:50%;
+  left:55%;
   transform: translate(-40%,0);
 }
 
 @media screen and (min-width: 768px) {
+  .promo {
+    padding-top: 300px;
+  }
+
   .promo__title {
     padding-bottom: 140px;
     max-width: 680px;
+    font-size: 40px;
+    line-height: 52px;
+    letter-spacing: -1.6px;
   }
 
   .promo__img {
     padding-bottom: 70px;
-    left:45%;
+    left:44%;
     transform: translate(-50%,0);
   }
 }
 
 @media screen and (min-width: 1280px) {
   .promo {
+    display: block;
     padding-top: 50px;
   }
 
+  .promo__img {
+    transform: translate(-10%,0);
+    height: 244px;
+    padding-bottom: 60px;
+  }
+
   .promo__title {
-    width: 626px;
+    max-width: 626px;
     text-align: left;
     padding-left: 70px;
     padding-bottom: 102px;
@@ -56,11 +70,6 @@
     font-weight: 400;
     line-height: 52px;
     letter-spacing: -1.6px;
-  }
-
-  .promo__img {
-    left: 40%;
-    transform: translate(0,0);
   }
 }
 

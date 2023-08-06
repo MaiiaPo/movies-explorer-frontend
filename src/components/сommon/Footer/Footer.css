@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 79px 10px 20px;
+  padding: 39px 10px 20px;
 }
 
 .footer__description {
@@ -56,19 +56,23 @@
 }
 
 @media screen and (min-width: 768px) {
-  .footer {
-    padding: 79px 30px 20px;
-  }
-
   .footer__links {
     display: flex;
     flex-direction: row;
+    gap: 21px;
+    padding-top: 0;
   }
 
   .footer__bottom {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
+    width: 95%;
+    padding-top: 20px;
+  }
+
+  .footer__description {
+    font-size: 13px;
   }
 
   .footer__year {
@@ -80,8 +84,18 @@
     font-size: 13px;
     gap: 20px;
   }
+
+  .footer__copyright {
+    padding-top: 0;
+  }
 }
 
 @media screen and (min-width: 1280px) {
+  .footer {
+    padding-top: 53px;
+  }
 
+  .footer__bottom {
+    width: 90%;
+  }
 }

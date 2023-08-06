@@ -99,3 +99,22 @@
   border-radius: 50px;
   background: #F9F9F9;
 }
+
+@media screen and (min-width: 768px) {
+  .nav__auth {
+    gap: 30px;
+  }
+
+  .nav__auth-item {
+    font-size: 12px;
+  }
+
+  .nav__auth-item_button {
+    width: 77px;
+    height: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+
+}

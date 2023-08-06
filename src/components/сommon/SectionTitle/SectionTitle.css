@@ -13,5 +13,6 @@
   .section-title__title {
     font-size: 22px;
     letter-spacing: -0.88px;
+    padding-bottom: 22px;
   }
 }

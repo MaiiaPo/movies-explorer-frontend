@@ -7,7 +7,7 @@ function Footer() {
       <div className="footer__bottom">
         <div className="footer__links">
           <a className="footer__link" href="https://practicum.yandex.ru" target="_blank" rel="noreferrer">
-            Яндекс.Практикум
+            Яндекс Практикум
           </a>
           <a className="footer__link" href="https://github.com/MaiiaPo" target="_blank" rel="noreferrer">
             Github
