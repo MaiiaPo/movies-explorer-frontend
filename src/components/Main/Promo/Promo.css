@@ -3,6 +3,9 @@
   padding-top: 183px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .promo__title {
@@ -22,16 +25,19 @@
   display: block;
   position: relative;
   left:50%;
-  transform: translate(-50%,0);
+  transform: translate(-40%,0);
 }
 
 @media screen and (min-width: 768px) {
   .promo__title {
     padding-bottom: 140px;
+    max-width: 680px;
   }
 
   .promo__img {
     padding-bottom: 70px;
+    left:45%;
+    transform: translate(-50%,0);
   }
 }
 
