@@ -8,7 +8,7 @@
 
 .profile__title {
   margin: 0;
-  padding-top: 70px;
+  padding-top: 15px;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -19,6 +19,7 @@
   align-self: flex-start;
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
 }
 
 .profile__input-field {
@@ -67,4 +68,44 @@
 
 .profile__button_color {
   color: #FF4062;
+}
+
+@media screen and (min-width: 768px) {
+  .profile__form {
+    padding-top: 72px;
+  }
+
+  .profile__title {
+    padding-top: 236px;
+  }
+
+  .profile__input {
+    width: 200px;
+  }
+
+  .profile__input-field {
+    padding-top: 24px;
+  }
+
+  .profile__buttons {
+    margin-top: 24%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .profile__title {
+    padding-top: 73px;
+  }
+
+  .profile__buttons {
+    margin-top: 16%;
+  }
+
+  .profile_input-field_name {
+    margin-top: 30px;
+  }
+
+  .profile__input-field {
+    padding-top: 20px;
+  }
 }

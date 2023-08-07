@@ -3,7 +3,7 @@ import './Navigation.css';
 import { useLocation, Link } from "react-router-dom";
 import Menu from '../../../images/menu.svg';
 import Close from '../../../images/close.svg';
-import Profile from '../../../images/profile.svg';
+import ButtonProfile from "../ButtonProfile/ButtonProfile";
 
 function Navigation() {
   const [showMenu, setShowMenu] = React.useState(false);
@@ -54,15 +54,10 @@ function Navigation() {
                   Сохранённые фильмы
                 </Link>
               </div>
-              <div className="nav__profile">
-                <Link
-                  className="nav__profile-button"
-                  to="/profile"
-                  onClick={handleShowMenu}
-                >
-                  Аккаунт <img className="nav__profile-icon" src={Profile} alt="Аккаунт" />
-                </Link>
+              <div className="nav__menu__button-profile">
+                <ButtonProfile showMenu={handleShowMenu}/>
               </div>
+
             </div>
           }
         </div>

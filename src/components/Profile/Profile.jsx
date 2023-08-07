@@ -5,7 +5,7 @@ function Profile() {
     <main className="profile">
       <h1 className="profile__title">Привет, Виталий!</h1>
       <form className="profile__form">
-        <div className="profile__input-field profile__input-field_border">
+        <div className="profile__input-field profile__input-field_border profile_input-field_name">
           <label className="profile__label" htmlFor="user-name">
             Имя
           </label>

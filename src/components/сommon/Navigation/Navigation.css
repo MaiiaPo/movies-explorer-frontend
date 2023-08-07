@@ -100,6 +100,10 @@
   background: #F9F9F9;
 }
 
+.nav__menu__button-profile {
+  margin-bottom: 46px;
+}
+
 @media screen and (min-width: 768px) {
   .nav__auth {
     gap: 30px;
