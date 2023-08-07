@@ -18,7 +18,9 @@ function Auth({title, name, children, button, buttonValue, isRegister}) {
         onSubmit={handleSubmit}
       >
         <fieldset className="form__set">
-          {children}
+          <div className="auth__input-fields">
+            {children}
+          </div>
           {button && <input type="submit" value={buttonValue} className="auth__submit"/>}
         </fieldset>
       </form>

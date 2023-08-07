@@ -38,14 +38,15 @@ function Register() {
         Пароль
       </label>
       <input
-        className="auth__input"
+        className="auth__input auth__input_error"
+        value="Пароль"
         name="password"
         type="password"
         minLength="6"
         maxLength="20"
         required
       />
-      <span className={`auth__input-error`}>
+      <span className={`auth__input-error auth__input-error_active`}>
         Что-то пошло не так...
       </span>
     </Auth>
