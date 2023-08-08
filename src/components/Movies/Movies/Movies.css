@@ -14,8 +14,22 @@
 
 .movies__list {
   padding-top: 50px;
+  padding-bottom: 80px;
   display: grid;
   margin: 0 auto;
   justify-content: center;
   gap: 34px;
+}
+
+.movies__button-more {
+  width: 240px;
+  height: 36px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 6px;
+  background: #F9F9F9;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
