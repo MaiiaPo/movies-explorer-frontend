@@ -27,7 +27,7 @@ function Header() {
         }
       </div>
       <div className="header__right">
-        {width > 768
+        {width >= 1280
           ? (<div className="button-profile-container"><ButtonProfile/></div>)
           : (location.pathname !== '/signin' && location.pathname !== '/signup' && <Navigation/>)
         }

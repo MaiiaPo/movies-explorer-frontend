@@ -35,7 +35,8 @@ function Navigation() {
         <div className="nav__default">
           <img className="nav__icon" onClick={handleShowMenu} src={Menu} alt="Навигационное меню" />
           {showMenu &&
-            <div className="nav__dropdown">
+            <>
+            <div className="nav__dropdown nav__dropdown_open">
               <img className="nav__close" src={Close} alt="Закрыть меню" onClick={handleShowMenu} />
               <div className="nav__menu">
                 <Link
@@ -64,6 +65,8 @@ function Navigation() {
                 <ButtonProfile showMenu={handleShowMenu}/>
               </div>
             </div>
+            <div className="overlay"></div>
+            </>
           }
         </div>
       )
