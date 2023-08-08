@@ -11,12 +11,6 @@ function Navigation() {
 
   function handleShowMenu () {
     setShowMenu(!showMenu);
-
-    if (!showMenu) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'visible';
-    }
   }
 
   return (

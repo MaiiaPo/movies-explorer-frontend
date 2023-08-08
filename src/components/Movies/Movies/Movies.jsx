@@ -8,8 +8,14 @@ import Design from "../../../images/movies/Киноальманах 100 лет �
 import Bencsi from "../../../images/movies/В погоне за Бенкси.jpg";
 import Baskia from "../../../images/movies/Баския Взрыв реальности.jpg";
 import Run from "../../../images/movies/Бег это свобода.jpg";
+import BooksShopers from "../../../images/movies/Книготорговцы.jpg";
+import ThinkGermany from "../../../images/movies/Когда я думаю о Германии ночью.jpg";
+import Iggy from "../../../images/movies/Gimme Danger История Игги и The Stooges.jpg";
+import useWindowDimensions from "../../../hooks/windowDimensions";
 
 function Movies() {
+  const { width } = useWindowDimensions();
+
   return (
     <main className="movies">
       <div className="movies__filter">
@@ -47,9 +53,29 @@ function Movies() {
           image={Run}
           altImage="Трое людей на скейтах на дороге"
         />
-        <button className="movies__button-more">Еще</button>
+        {width >= 1280 &&
+          <>
+            <MoviesCard
+              name="Книготорговцы"
+              image={BooksShopers}
+              altImage="Мужчина в комнате разбирает коробки с книгами"
+              isLike={true}
+            />
+            <MoviesCard
+              name="Когда я думаю о Германии ночью"
+              image={ThinkGermany}
+              altImage="Трое мужчин разговаривают"
+              isLike={true}
+            />
+            <MoviesCard
+              name="Gimme Danger: История Игги и The Stooges"
+              image={Iggy}
+              altImage="Стена с граффити"
+            />
+          </>
+        }
       </div>
-
+      <button className="movies__button-more">Еще</button>
       <Footer/>
     </main>
   )

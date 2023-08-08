@@ -3,6 +3,7 @@
   align-items: center;
   flex-direction: column;
   padding: 39px 10px 20px;
+  width: 90%;
 }
 
 .footer__description {

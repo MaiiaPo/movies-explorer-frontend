@@ -1,7 +1,15 @@
+.movies {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+}
+
 .movies__filter {
   margin: 81px 14px 0;
   padding-bottom: 44px;
   border-bottom: 1px solid #E8E8E8;
+  width: 100%;
 }
 
 .movies__checkbox-container {
@@ -14,7 +22,6 @@
 
 .movies__list {
   padding-top: 50px;
-  padding-bottom: 80px;
   display: grid;
   margin: 0 auto;
   justify-content: center;
@@ -22,9 +29,9 @@
 }
 
 .movies__button-more {
-  width: 240px;
+  width: 50%;
   height: 36px;
-  margin: 0 auto;
+  margin: 50px auto 80px;
   border: none;
   border-radius: 6px;
   background: #F9F9F9;
@@ -32,4 +39,17 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+
+@media screen and (min-width: 768px) {
+  .movies__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .movies__list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
 }

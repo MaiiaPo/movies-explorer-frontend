@@ -15,7 +15,7 @@ function Header() {
         <Link className="header__route" to="/">
           <img className="header__logo" src={Logo} alt="Логотип" />
         </Link>
-        {width > 768 &&
+        {width >= 1280 &&
           <div className="header__route-links">
             <Link className="header__route-link" to="/movies">
               Фильмы

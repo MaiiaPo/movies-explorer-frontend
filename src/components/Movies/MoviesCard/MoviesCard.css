@@ -30,3 +30,14 @@
   font-weight: 400;
   line-height: normal;
 }
+
+@media screen and (min-width: 768px) {
+  .card__img {
+    height: 151px;
+    max-width: 270px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+
+}
