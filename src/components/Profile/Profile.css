@@ -70,12 +70,15 @@
 }
 
 @media screen and (min-width: 768px) {
-  .profile__form {
-    padding-top: 72px;
+  .profile {
+    align-items: start;
+    grid-template-rows: 13% 67% min-content;
+    padding-top: 50px;
+    height: 80vh;
   }
 
-  .profile__title {
-    padding-top: 236px;
+  .profile__form {
+    padding-top: 42px;
   }
 
   .profile__input {
@@ -84,10 +87,6 @@
 
   .profile__input-field {
     padding-top: 24px;
-  }
-
-  .profile__buttons {
-    margin-top: 24%;
   }
 }
 

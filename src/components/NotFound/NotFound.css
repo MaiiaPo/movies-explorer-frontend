@@ -34,12 +34,17 @@
 }
 
 @media screen and (min-width: 768px) {
+  .not-found {
+    grid-template-rows: 60% 35%;
+  }
+
   .not-found__error {
     font-size: 140px;
   }
 
   .not-found__text {
     font-size: 16px;
+    padding-top: 7px;
   }
 
   .not-found__back-button {

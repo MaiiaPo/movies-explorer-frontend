@@ -106,10 +106,6 @@
     padding: 40px 0 0;
   }
 
-  .auth__logo {
-    padding-top: 232px;
-  }
-
   .auth__route {
     align-self: flex-start;
   }
@@ -129,7 +125,7 @@
   }
 
   .auth__submit {
-    margin-top: 40%;
+    margin-top: 25%;
     width: 392px;
   }
 

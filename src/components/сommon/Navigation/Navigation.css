@@ -134,6 +134,10 @@
     left: calc(100vw - 520px);
   }
 
+  .nav__menu {
+    grid-template-rows: 19% 12% 12%;
+  }
+
   .overlay {
     opacity: 1;
     visibility: visible;

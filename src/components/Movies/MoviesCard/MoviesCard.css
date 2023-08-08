@@ -1,8 +1,7 @@
 .card__img {
   object-fit: cover;
   height: 168px;
-  max-width: 300px;
-  width: 100%;
+  width: 300px;
 }
 
 .card__info {
@@ -33,8 +32,8 @@
 
 @media screen and (min-width: 768px) {
   .card__img {
-    height: 151px;
-    max-width: 270px;
+    width: 339px;
+    height: 190px;
   }
 }
 

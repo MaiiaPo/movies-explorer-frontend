@@ -46,8 +46,18 @@
 }
 
 @media screen and (min-width: 768px) {
+  .movies__checkbox-container {
+    padding-top: 34px;
+  }
+
   .movies__list {
     grid-template-columns: 1fr 1fr;
+    padding-top: 74px;
+    gap: 30px;
+  }
+
+  .movies__list_saved {
+    padding-bottom: 207px;
   }
 }
 
@@ -55,5 +65,9 @@
   .movies__list {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+  }
+
+  .movies__button-more {
+    width: 42%;
   }
 }
