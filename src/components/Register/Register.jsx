@@ -38,7 +38,7 @@ function Register() {
         Пароль
       </label>
       <input
-        className="auth__input auth__input_error"
+        className="auth__input auth__input_error auth__input-error_active"
         value="Пароль"
         name="password"
         type="password"

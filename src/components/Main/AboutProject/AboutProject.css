@@ -3,6 +3,7 @@
   list-style-type: none;
   padding: 60px 0 0;
   margin: 0;
+  gap: 56px;
 }
 
 .about-project__description-title {

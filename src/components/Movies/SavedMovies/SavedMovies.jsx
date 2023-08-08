@@ -17,7 +17,7 @@ function SavedMovies() {
           <FilterCheckbox />
         </div>
       </div>
-      <div className="movies__list">
+      <div className="movies__list movies__list_saved">
         <MoviesCard
           name="33 слова о дизайне"
           image={Words}
