@@ -11,6 +11,12 @@ function Navigation() {
 
   function handleShowMenu () {
     setShowMenu(!showMenu);
+
+    if (!showMenu) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'visible';
+    }
   }
 
   return (
@@ -57,7 +63,6 @@ function Navigation() {
               <div className="nav__menu__button-profile">
                 <ButtonProfile showMenu={handleShowMenu}/>
               </div>
-
             </div>
           }
         </div>

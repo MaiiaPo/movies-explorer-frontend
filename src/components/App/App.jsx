@@ -2,7 +2,7 @@ import './App.css';
 import {Route, Routes, useLocation} from 'react-router-dom';
 import Main from '../Main/Main/Main';
 import Movies from '../Movies/Movies/Movies';
-import SavedMovies from '../SavedMovies/SavedMovies/SavedMovies';
+import SavedMovies from '../Movies/SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import Login from '../Login/Login';
 import Register from '../Register/Register'
