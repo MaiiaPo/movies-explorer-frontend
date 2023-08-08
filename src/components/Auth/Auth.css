@@ -147,4 +147,8 @@
   .auth__form {
     padding-top: 33px;
   }
+
+  .auth__link {
+    font-size: 14px;
+  }
 }

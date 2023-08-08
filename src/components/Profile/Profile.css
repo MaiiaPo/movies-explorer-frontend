@@ -91,12 +91,12 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .profile__title {
-    padding-top: 73px;
+  .profile__form {
+    padding-top: 61px;
   }
 
-  .profile__buttons {
-    margin-top: 16%;
+  .profile__title {
+    padding-top: 23px;
   }
 
   .profile_input-field_name {
