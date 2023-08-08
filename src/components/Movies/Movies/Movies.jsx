@@ -31,25 +31,21 @@ function Movies() {
           name="Киноальманах «100 лет дизайна»"
           image={Design}
           altImage="Фотография мужчины в очках"
-          isLike={false}
         />
         <MoviesCard
           name="В погоне за Бенкси"
           image={Bencsi}
           altImage="Бенкси с гитарой за столом"
-          isLike={false}
         />
         <MoviesCard
           name="Баския: Взрыв реальности"
           image={Baskia}
           altImage="Девушка в комнате с колоннами"
-          isLike={false}
         />
         <MoviesCard
           name="Бег это свобода"
           image={Run}
           altImage="Трое людей на скейтах на дороге"
-          isLike={false}
         />
         <button className="movies__button-more">Еще</button>
       </div>
