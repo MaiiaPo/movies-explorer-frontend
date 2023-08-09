@@ -1,6 +1,9 @@
 import Auth from "../Auth/Auth";
+import {useForm} from "../../hooks/useForm";
 
 function Register() {
+  const { handleChange } = useForm({});
+
   return (
     <Auth
       title="Добро пожаловать!"
@@ -19,6 +22,7 @@ function Register() {
         minLength="2"
         maxLength="40"
         required
+        onChange={handleChange}
       />
       <span className={`auth__input-error`}>
         Что-то пошло не так...
@@ -33,6 +37,7 @@ function Register() {
         minLength="2"
         maxLength="40"
         required
+        onChange={handleChange}
       />
       <label className="auth__label" htmlFor="password">
         Пароль
@@ -45,6 +50,7 @@ function Register() {
         minLength="6"
         maxLength="20"
         required
+        onChange={handleChange}
       />
       <span className={`auth__input-error auth__input-error_active`}>
         Что-то пошло не так...

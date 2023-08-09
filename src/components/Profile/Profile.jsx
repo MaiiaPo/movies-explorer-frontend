@@ -1,6 +1,9 @@
 import './Profile.css';
+import {useForm} from "../../hooks/useForm";
 
 function Profile() {
+  const { handleChange } = useForm({});
+
   return (
     <main className="profile">
       <h1 className="profile__title">Привет, Виталий!</h1>
@@ -19,6 +22,7 @@ function Profile() {
             minLength="2"
             maxLength="40"
             required
+            onChange={handleChange}
           />
         </div>
 
@@ -35,6 +39,7 @@ function Profile() {
             minLength="2"
             maxLength="40"
             required
+            onChange={handleChange}
           />
         </div>
       </form>

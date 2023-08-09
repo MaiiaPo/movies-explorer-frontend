@@ -1,6 +1,9 @@
 import Auth from "../Auth/Auth";
+import { useForm } from "../../hooks/useForm";
 
 function Login() {
+  const { handleChange } = useForm({});
+
   return (
     <Auth
       title="Рады видеть!"
@@ -20,6 +23,7 @@ function Login() {
         minLength="2"
         maxLength="40"
         required
+        onChange={handleChange}
       />
       <span className="auth__input-error">
         Что-то пошло не так...
@@ -34,6 +38,7 @@ function Login() {
         minLength="6"
         maxLength="20"
         required
+        onChange={handleChange}
       />
       <span className="auth__input-error">
         Что-то пошло не так...
