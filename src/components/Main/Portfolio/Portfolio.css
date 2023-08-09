@@ -68,9 +68,18 @@
 @media screen and (min-width: 1280px) {
   .portfolio {
     padding-left: 70px;
+    padding-top: 100px;
+  }
+
+  .portfolio__links {
+    width: 98%;
   }
 
   .portfolio__link-item {
     font-size: 30px;
+  }
+
+  .portfolio__arrow {
+    width: 20px;
   }
 }

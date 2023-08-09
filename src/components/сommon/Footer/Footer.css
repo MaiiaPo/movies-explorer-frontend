@@ -97,10 +97,12 @@
 
 @media screen and (min-width: 1280px) {
   .footer {
-    padding-top: 53px;
+    width: 89%;
+    padding-top: 77px;
+    margin: 0 auto;
   }
 
   .footer__bottom {
-    width: 90%;
+    width: 100%;
   }
 }
