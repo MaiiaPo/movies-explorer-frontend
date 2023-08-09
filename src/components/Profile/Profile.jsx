@@ -1,5 +1,6 @@
 import './Profile.css';
 import {useForm} from "../../hooks/useForm";
+import {Link} from "react-router-dom";
 
 function Profile() {
   const { handleChange } = useForm({});
@@ -45,7 +46,10 @@ function Profile() {
       </form>
       <div className="profile__buttons">
         <button type="button" className="profile__button">Редактировать</button>
-        <button type="button" className="profile__button profile__button_color">Выйти из аккаунта</button>
+        <Link className="profile__route" to="/">
+          <button type="button" className="profile__button profile__button_color">Выйти из аккаунта</button>
+        </Link>
+
       </div>
     </main>
   )
