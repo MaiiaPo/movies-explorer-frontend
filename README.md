@@ -1,6 +1,6 @@
 # movies-explorer-frontend
 
-*Ссылка на макет figma* - https://disk.yandex.ru/d/MCsFM7dqc16PqQ
+*Ссылка на макет figma* - [https://disk.yandex.ru/d/MCsFM7dqc16PqQ](https://disk.yandex.ru/d/8nsMPCilNFt6fg)
 
 
 # Фронтенд часть проекта Movies Explorer
