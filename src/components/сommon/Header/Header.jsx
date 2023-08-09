@@ -15,7 +15,7 @@ function Header() {
         <Link className="header__route" to="/">
           <img className="header__logo" src={Logo} alt="Логотип" />
         </Link>
-        {width >= 768 &&
+        {width >= 768 && location.pathname !== '/' &&
           <div className="header__route-links">
             <Link className="header__route-link" to="/movies">
               Фильмы
@@ -27,7 +27,7 @@ function Header() {
         }
       </div>
       <div className="header__right">
-        {width >= 768
+        {width >= 768 && location.pathname !== '/'
           ? (<div className="button-profile-container"><ButtonProfile/></div>)
           : (location.pathname !== '/signin' && location.pathname !== '/signup' && <Navigation/>)
         }

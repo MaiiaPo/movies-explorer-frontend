@@ -1,4 +1,5 @@
 import '../Movies/Movies.css';
+import './SavedMovies.css';
 import SearchForm from "../SearchForm/SearchForm";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 import Footer from "../../сommon/Footer/Footer";
@@ -36,16 +37,17 @@ function SavedMovies() {
           isSaved={true}
         />
         {width >= 768 &&
-          <>
-            <MoviesCard
-              name="В погоне за Бенкси"
-              image={Bencsi}
-              altImage="Бенкси с гитарой за столом"
-            />
-          </>
+          <MoviesCard
+            name="В погоне за Бенкси"
+            image={Bencsi}
+            altImage="Бенкси с гитарой за столом"
+            isSaved={true}
+          />
         }
       </div>
-      <Footer/>
+      <div className="footer__container_saved">
+        <Footer/>
+      </div>
     </main>
   )
 }

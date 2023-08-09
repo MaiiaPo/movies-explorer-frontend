@@ -6,7 +6,6 @@
 
 .card__info {
   display: flex;
-  border-bottom: 1px solid #E8E8E8;
   justify-content: space-between;
   align-items: center;
   padding: 4px 0 22px;
@@ -28,6 +27,12 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  border-top: 1px solid #E8E8E8;
+}
+
+.card__like {
+  width: 24px;
+  height: 24px;
 }
 
 @media screen and (min-width: 768px) {
@@ -41,5 +46,18 @@
   .card__img {
     width: 270px;
     height: 151px;
+  }
+
+  .card__info {
+    height: 32px;
+  }
+
+  .card__name {
+    max-width: 226px;
+    font-size: 13px;
+  }
+
+  .card__duration {
+    font-size: 11px;
   }
 }

@@ -53,7 +53,7 @@ function Movies() {
           image={Run}
           altImage="Трое людей на скейтах на дороге"
         />
-        {width >= 1280 &&
+        {width >= 768 &&
           <>
             <MoviesCard
               name="Книготорговцы"
@@ -71,6 +71,52 @@ function Movies() {
               name="Gimme Danger: История Игги и The Stooges"
               image={Iggy}
               altImage="Стена с граффити"
+            />
+          </>
+          }
+        {width >= 1280 &&
+          <>
+            <MoviesCard
+              name="33 слова о дизайне"
+              image={Words}
+              altImage="Черно-белая фотография девушки с машиной"
+              isLike={true}
+            />
+            <MoviesCard
+              name="Киноальманах «100 лет дизайна»"
+              image={Design}
+              altImage="Фотография мужчины в очках"
+            />
+            <MoviesCard
+              name="В погоне за Бенкси"
+              image={Bencsi}
+              altImage="Бенкси с гитарой за столом"
+            />
+            <MoviesCard
+              name="Баския: Взрыв реальности"
+              image={Baskia}
+              altImage="Девушка в комнате с колоннами"
+            />
+            <MoviesCard
+              name="33 слова о дизайне"
+              image={Words}
+              altImage="Черно-белая фотография девушки с машиной"
+              isLike={true}
+            />
+            <MoviesCard
+              name="Киноальманах «100 лет дизайна»"
+              image={Design}
+              altImage="Фотография мужчины в очках"
+            />
+            <MoviesCard
+              name="В погоне за Бенкси"
+              image={Bencsi}
+              altImage="Бенкси с гитарой за столом"
+            />
+            <MoviesCard
+              name="Баския: Взрыв реальности"
+              image={Baskia}
+              altImage="Девушка в комнате с колоннами"
             />
           </>
         }

@@ -34,3 +34,19 @@
   line-height: 18px;
   padding: 5px 13px;
 }
+
+@media screen and (min-width: 1280px) {
+  .search__form {
+    width: 89.5%;
+  }
+
+  .search__input {
+    padding-left: 27px;
+    font-size: 14px;
+  }
+
+  .search__submit {
+    width: 74px;
+  }
+}
+

@@ -25,7 +25,7 @@
   display: grid;
   margin: 0 auto;
   justify-content: center;
-  gap: 45px;
+  gap: 35px;
 }
 
 .movies__list_saved {
@@ -35,7 +35,7 @@
 .movies__button-more {
   width: 75%;
   height: 36px;
-  margin: 73px auto 120px;
+  margin: 68px auto 120px;
   border: none;
   border-radius: 6px;
   background: #F9F9F9;
@@ -53,11 +53,13 @@
   .movies__list {
     grid-template-columns: 1fr 1fr;
     padding-top: 74px;
-    gap: 30px;
+    column-gap: 30px;
+    row-gap: 34px;
   }
 
-  .movies__list_saved {
-    padding-bottom: 207px;
+  .movies__button-more {
+    width: 42%;
+    margin: 65px 0 115px;
   }
 }
 
@@ -65,11 +67,12 @@
   .movies__list {
     grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
-    row-gap: 41px;
+    row-gap: 33px;
     padding-bottom: 0;
   }
 
   .movies__button-more {
-    width: 42%;
+    width: 25%;
+    margin-bottom: 80px;
   }
 }
