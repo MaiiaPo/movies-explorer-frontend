@@ -151,4 +151,12 @@
   .auth__link {
     font-size: 14px;
   }
+
+  .auth__submit {
+    margin-top: 40%;
+  }
+
+  .auth__submit_register {
+    margin-top: 50px;
+  }
 }
