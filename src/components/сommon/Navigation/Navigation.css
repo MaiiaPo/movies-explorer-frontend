@@ -115,7 +115,20 @@
   margin: 0 auto 46px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 620px) {
+  .nav__close {
+    width: 30px;
+    padding: 22.4px 21.4px 0 0;
+  }
+
+  .nav__dropdown {
+    grid-template-rows: 135px 5fr 1fr;
+  }
+
+  .nav__menu {
+    grid-template-rows: 11% 13% 10%;
+  }
+
   .nav__auth {
     gap: 30px;
   }
@@ -132,10 +145,6 @@
   .nav__dropdown {
     max-width: 520px;
     left: calc(100vw - 520px);
-  }
-
-  .nav__menu {
-    grid-template-rows: 19% 12% 12%;
   }
 
   .overlay {

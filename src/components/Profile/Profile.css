@@ -70,15 +70,19 @@
 }
 
 @media screen and (min-width: 768px) {
+  .profile__title {
+    align-self: end;
+  }
+
   .profile {
     align-items: start;
-    grid-template-rows: 13% 67% min-content;
+    grid-template-rows: 41% 71% min-content;
     padding-top: 50px;
     height: 80vh;
   }
 
   .profile__form {
-    padding-top: 42px;
+    padding-top: 74px;
   }
 
   .profile__input {

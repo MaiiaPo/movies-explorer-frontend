@@ -125,8 +125,12 @@
   }
 
   .auth__submit {
-    margin-top: 25%;
+    margin-top: 40%;
     width: 392px;
+  }
+
+  .auth__submit_register {
+    margin-top: 50px;
   }
 
   .auth__register-text {
@@ -154,9 +158,5 @@
 
   .auth__submit {
     margin-top: 40%;
-  }
-
-  .auth__submit_register {
-    margin-top: 50px;
   }
 }

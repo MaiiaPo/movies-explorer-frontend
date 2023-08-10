@@ -70,10 +70,11 @@
   .about-project__description {
     grid-template-columns: 1fr 1fr;
     padding: 70px 0 0;
+    gap: 30px;
   }
 
   .about-project__description-item {
-    max-width: 319px;
+    width: 319px;
   }
 
   .about-project__description-title {

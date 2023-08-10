@@ -54,12 +54,12 @@
     grid-template-columns: 1fr 1fr;
     padding-top: 74px;
     column-gap: 30px;
-    row-gap: 34px;
+    row-gap: 31px;
   }
 
   .movies__button-more {
     width: 42%;
-    margin: 65px 0 115px;
+    margin: 65px 0 119px;
   }
 }
 
