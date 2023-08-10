@@ -22,32 +22,36 @@ function SavedMovies() {
           <FilterCheckbox />
         </div>
       </div>
-      <div className="movies__list movies__list_saved">
-        <MoviesCard
-          name="33 слова о дизайне"
-          image={Words}
-          altImage="Черно-белая фотография девушки с машиной"
-          isLike={true}
-          isSaved={true}
-        />
-        <MoviesCard
-          name="Киноальманах «100 лет дизайна»"
-          image={Design}
-          altImage="Фотография мужчины в очках"
-          isSaved={true}
-        />
-        {width >= 768 &&
+      <ul className="movies__list movies__list_saved">
+        <li className="movies__list-item">
           <MoviesCard
-            name="В погоне за Бенкси"
-            image={Bencsi}
-            altImage="Бенкси с гитарой за столом"
+            name="33 слова о дизайне"
+            image={Words}
+            altImage="Черно-белая фотография девушки с машиной"
+            isLike={true}
             isSaved={true}
           />
+        </li>
+        <li className="movies__list-item">
+          <MoviesCard
+            name="Киноальманах «100 лет дизайна»"
+            image={Design}
+            altImage="Фотография мужчины в очках"
+            isSaved={true}
+          />
+        </li>
+        {width >= 768 &&
+          <li className="movies__list-item">
+            <MoviesCard
+              name="В погоне за Бенкси"
+              image={Bencsi}
+              altImage="Бенкси с гитарой за столом"
+              isSaved={true}
+            />
+          </li>
         }
-      </div>
-      <div className="footer__container_saved">
-        <Footer/>
-      </div>
+      </ul>
+      <Footer/>
     </main>
   )
 }

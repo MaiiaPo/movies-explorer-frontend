@@ -48,7 +48,7 @@
 }
 
 .filter-checkbox__input:checked + .filter-checkbox__slider:before {
-  transform: translateX(10px);
+  transform: translateX(21px);
 }
 
 .filter-checkbox__slider_round {

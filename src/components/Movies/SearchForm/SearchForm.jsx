@@ -6,9 +6,10 @@ function SearchForm() {
         <input
           className="search__input"
           name="search"
+          type="text"
           placeholder="Фильм"
           required
-          min="2"
+          minLength="2"
         />
         <input type="submit" value="Найти" className="search__submit"/>
       </form>

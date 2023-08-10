@@ -7,11 +7,11 @@ function NotFound() {
     navigate(-1);
   }
   return (
-    <main className="not-found">
+    <section className="not-found">
       <h1 className="not-found__error">404</h1>
       <p className="not-found__text">Страница не найдена</p>
       <button className="not-found__back-button" type="button" onClick={back}>Назад</button>
-    </main>
+    </section>
   )
 }
 

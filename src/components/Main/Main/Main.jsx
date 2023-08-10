@@ -8,14 +8,14 @@ import Footer from "../../сommon/Footer/Footer";
 
 function Main() {
   return (
-    <main className="content">
+    <>
       <Promo/>
       <AboutProject/>
       <Techs />
       <AboutMe />
       <Portfolio />
       <Footer/>
-    </main>
+    </>
 
   )
 }

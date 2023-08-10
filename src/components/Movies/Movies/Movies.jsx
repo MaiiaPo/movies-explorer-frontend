@@ -26,102 +26,134 @@ function Movies() {
           <FilterCheckbox />
         </div>
       </div>
-      <div className="movies__list">
-        <MoviesCard
-          name="33 слова о дизайне"
-          image={Words}
-          altImage="Черно-белая фотография девушки с машиной"
-          isLike={true}
-        />
-        <MoviesCard
-          name="Киноальманах «100 лет дизайна»"
-          image={Design}
-          altImage="Фотография мужчины в очках"
-        />
-        <MoviesCard
-          name="В погоне за Бенкси"
-          image={Bencsi}
-          altImage="Бенкси с гитарой за столом"
-        />
-        <MoviesCard
-          name="Баския: Взрыв реальности"
-          image={Baskia}
-          altImage="Девушка в комнате с колоннами"
-        />
-        <MoviesCard
-          name="Бег это свобода"
-          image={Run}
-          altImage="Трое людей на скейтах на дороге"
-        />
+      <ul className="movies__list">
+        <li className="movies__list-item">
+          <MoviesCard
+            name="33 слова о дизайне"
+            image={Words}
+            altImage="Черно-белая фотография девушки с машиной"
+            isLike={true}
+          />
+        </li>
+        <li className="movies__list-item">
+          <MoviesCard
+            name="Киноальманах «100 лет дизайна»"
+            image={Design}
+            altImage="Фотография мужчины в очках"
+          />
+        </li>
+        <li className="movies__list-item">
+          <MoviesCard
+            name="В погоне за Бенкси"
+            image={Bencsi}
+            altImage="Бенкси с гитарой за столом"
+          />
+        </li>
+        <li className="movies__list-item">
+          <MoviesCard
+            name="Баския: Взрыв реальности"
+            image={Baskia}
+            altImage="Девушка в комнате с колоннами"
+          />
+        </li>
+        <li className="movies__list-item">
+          <MoviesCard
+            name="Бег это свобода"
+            image={Run}
+            altImage="Трое людей на скейтах на дороге"
+          />
+        </li>
         {width >= 768 &&
           <>
-            <MoviesCard
-              name="Книготорговцы"
-              image={BooksShopers}
-              altImage="Мужчина в комнате разбирает коробки с книгами"
-              isLike={true}
-            />
-            <MoviesCard
-              name="Когда я думаю о Германии ночью"
-              image={ThinkGermany}
-              altImage="Трое мужчин разговаривают"
-              isLike={true}
-            />
-            <MoviesCard
-              name="Gimme Danger: История Игги и The Stooges"
-              image={Iggy}
-              altImage="Стена с граффити"
-            />
+            <li className="movies__list-item">
+              <MoviesCard
+                name="Книготорговцы"
+                image={BooksShopers}
+                altImage="Мужчина в комнате разбирает коробки с книгами"
+                isLike={true}
+              />
+            </li>
+            <li className="movies__list-item">
+              <MoviesCard
+                name="Когда я думаю о Германии ночью"
+                image={ThinkGermany}
+                altImage="Трое мужчин разговаривают"
+                isLike={true}
+              />
+            </li>
+            <li className="movies__list-item">
+              <MoviesCard
+                name="Gimme Danger: История Игги и The Stooges"
+                image={Iggy}
+                altImage="Стена с граффити"
+              />
+            </li>
           </>
           }
         {width >= 1280 &&
           <>
-            <MoviesCard
-              name="33 слова о дизайне"
-              image={Words}
-              altImage="Черно-белая фотография девушки с машиной"
-              isLike={true}
-            />
-            <MoviesCard
-              name="Киноальманах «100 лет дизайна»"
-              image={Design}
-              altImage="Фотография мужчины в очках"
-            />
-            <MoviesCard
-              name="В погоне за Бенкси"
-              image={Bencsi}
-              altImage="Бенкси с гитарой за столом"
-            />
-            <MoviesCard
-              name="Баския: Взрыв реальности"
-              image={Baskia}
-              altImage="Девушка в комнате с колоннами"
-            />
-            <MoviesCard
-              name="33 слова о дизайне"
-              image={Words}
-              altImage="Черно-белая фотография девушки с машиной"
-              isLike={true}
-            />
-            <MoviesCard
-              name="Киноальманах «100 лет дизайна»"
-              image={Design}
-              altImage="Фотография мужчины в очках"
-            />
-            <MoviesCard
-              name="В погоне за Бенкси"
-              image={Bencsi}
-              altImage="Бенкси с гитарой за столом"
-            />
-            <MoviesCard
-              name="Баския: Взрыв реальности"
-              image={Baskia}
-              altImage="Девушка в комнате с колоннами"
-            />
+            <li className="movies__list-item">
+              <MoviesCard
+                name="33 слова о дизайне"
+                image={Words}
+                altImage="Черно-белая фотография девушки с машиной"
+                isLike={true}
+              />
+            </li>
+            <li className="movies__list-item">
+              <MoviesCard
+                name="Киноальманах «100 лет дизайна»"
+                image={Design}
+                altImage="Фотография мужчины в очках"
+              />
+            </li>
+            <li className="movies__list-item">
+              <MoviesCard
+                name="В погоне за Бенкси"
+                image={Bencsi}
+                altImage="Бенкси с гитарой за столом"
+              />
+            </li>
+            <li className="movies__list-item">
+              <MoviesCard
+                name="Баския: Взрыв реальности"
+                image={Baskia}
+                altImage="Девушка в комнате с колоннами"
+              />
+            </li>
+            <li className="movies__list-item">
+              <MoviesCard
+                name="33 слова о дизайне"
+                image={Words}
+                altImage="Черно-белая фотография девушки с машиной"
+                isLike={true}
+              />
+            </li>
+            <li className="movies__list-item">
+              <MoviesCard
+                name="Киноальманах «100 лет дизайна»"
+                image={Design}
+                altImage="Фотография мужчины в очках"
+              />
+            </li>
+            <li className="movies__list-item">
+              <MoviesCard
+                name="В погоне за Бенкси"
+                image={Bencsi}
+                altImage="Бенкси с гитарой за столом"
+              />
+            </li>
+            <li className="movies__list-item">
+              <MoviesCard
+                name="Баския: Взрыв реальности"
+                image={Baskia}
+                altImage="Девушка в комнате с колоннами"
+              />
+            </li>
           </>
         }
-      </div>
-      <button className="movies__button-more">Еще</button>
+      </ul>
+      <button className="movies__button-more" type="button">Еще</button>
       <Footer/>
     </main>
   )

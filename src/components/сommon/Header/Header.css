@@ -6,12 +6,16 @@
   padding: 0 14px;
 }
 
-.header_backgroundColor {
+.header_pink {
   background-color: #F3C1F8;
 }
 
 .header__logo {
   width: 38px;
+}
+
+.header__nav {
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {

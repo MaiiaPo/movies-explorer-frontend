@@ -6,11 +6,11 @@ function AboutMe() {
   return (
     <section className="container about-me">
       <SectionTitle title="Студент"/>
-      <div className="about-me__container">
+      <div className="about-me__block">
         <img className="about-me__avatar" src={Avatar} alt="Аватар"/>
         <div className="about-me__description">
           <div className="about-me__description-student">
-            <h2 className="about-me__name">Майя</h2>
+            <h3 className="about-me__name">Майя</h3>
             <p className="about-me__profession">Фронтенд-разработчик, 35 лет</p>
             <p className="about-me__info">Я из Перми. Работаю фронтент-разработчиком на Vue.js.
               До этого был опыт в бэкенде и фуллстеком. При переходе между стеками была

@@ -12,12 +12,13 @@ function Register() {
       buttonValue="Зарегистрироваться"
       isRegister={true}
     >
-      <label className="auth__label" htmlFor="name">
+      <label className="auth__label" for="user-name">
         Имя
       </label>
       <input
         className="auth__input"
         name="name"
+        id="user-name"
         placeholder="Введите имя"
         type="text"
         minLength="2"
@@ -25,14 +26,15 @@ function Register() {
         required
         onChange={handleChange}
       />
-      <span className={`auth__input-error`}>
+      <span className="auth__input-error">
         Что-то пошло не так...
       </span>
-      <label className="auth__label" htmlFor="email">
+      <label className="auth__label" for="user-email">
         E-mail
       </label>
       <input
         className="auth__input"
+        id="user-email"
         name="email"
         placeholder="Введите e-mail"
         type="email"
@@ -41,13 +43,14 @@ function Register() {
         required
         onChange={handleChange}
       />
-      <label className="auth__label" htmlFor="password">
+      <label className="auth__label" for="user-password">
         Пароль
       </label>
       <input
-        className="auth__input auth__input_error auth__input-error_active"
+        className="auth__input auth__input-error auth__input-error_active"
         value="Пароль"
         name="password"
+        id="user-password"
         placeholder="Введите пароль"
         type="password"
         minLength="6"
@@ -55,7 +58,7 @@ function Register() {
         required
         onChange={handleChange}
       />
-      <span className={`auth__input-error auth__input-error_active`}>
+      <span className="auth__input-error auth__input-error_active">
         Что-то пошло не так...
       </span>
     </Auth>

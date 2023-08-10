@@ -12,12 +12,13 @@ function Login() {
       buttonValue="Войти"
       isRegister={false}
     >
-      <label className="auth__label" htmlFor="email">
+      <label className="auth__label" for="user-email">
         E-mail
       </label>
       <input
         className="auth__input"
         name="email"
+        id="user-email"
         type="email"
         value="pochta@yandex.ru"
         placeholder="Введите e-mail"
@@ -29,12 +30,13 @@ function Login() {
       <span className="auth__input-error">
         Что-то пошло не так...
       </span>
-      <label className="auth__label" htmlFor="password">
+      <label className="auth__label" for="user-password">
         Пароль
       </label>
       <input
         className="auth__input"
         name="password"
+        id="user-password"
         placeholder="Введите пароль"
         type="password"
         minLength="6"

@@ -7,7 +7,7 @@ function Auth({title, name, children, button, buttonValue, isRegister}) {
     evt.preventDefault();
   }
   return (
-    <main className="auth">
+    <section className="auth">
       <Link className="auth__route" to="/">
         <img className="auth__logo" src={Logo} alt="Логотип" />
       </Link>
@@ -17,7 +17,7 @@ function Auth({title, name, children, button, buttonValue, isRegister}) {
         name={`${name}_form`}
         onSubmit={handleSubmit}
       >
-        <fieldset className="form__set">
+        <fieldset className="auth__form-set">
           <div className="auth__input-fields">
             {children}
           </div>
@@ -36,7 +36,7 @@ function Auth({title, name, children, button, buttonValue, isRegister}) {
           </p>
         )
       }
-    </main>
+    </section>
   )
 }
 
