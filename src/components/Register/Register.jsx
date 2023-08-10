@@ -18,6 +18,7 @@ function Register() {
       <input
         className="auth__input"
         name="name"
+        placeholder="Введите имя"
         type="text"
         minLength="2"
         maxLength="40"
@@ -33,6 +34,7 @@ function Register() {
       <input
         className="auth__input"
         name="email"
+        placeholder="Введите e-mail"
         type="email"
         minLength="2"
         maxLength="40"
@@ -46,6 +48,7 @@ function Register() {
         className="auth__input auth__input_error auth__input-error_active"
         value="Пароль"
         name="password"
+        placeholder="Введите пароль"
         type="password"
         minLength="6"
         maxLength="20"

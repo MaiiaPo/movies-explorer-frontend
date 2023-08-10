@@ -20,6 +20,7 @@ function Login() {
         name="email"
         type="email"
         value="pochta@yandex.ru"
+        placeholder="Введите e-mail"
         minLength="2"
         maxLength="40"
         required
@@ -34,6 +35,7 @@ function Login() {
       <input
         className="auth__input"
         name="password"
+        placeholder="Введите пароль"
         type="password"
         minLength="6"
         maxLength="20"
