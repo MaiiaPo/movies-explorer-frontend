@@ -5,6 +5,8 @@
   padding: 39px 10px 20px;
   width: 90%;
   margin: 0 auto;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .footer__description {
