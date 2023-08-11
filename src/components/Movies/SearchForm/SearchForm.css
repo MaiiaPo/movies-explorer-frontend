@@ -58,7 +58,7 @@
   }
 
   .search__form {
-    width: 100%;
+    width: 91%;
   }
 
   .search__toggle {
@@ -68,6 +68,10 @@
 
 
 @media screen and (min-width: 1280px) {
+  .search__form {
+    width: 89%;
+  }
+
   .search__input {
     padding-left: 27px;
     font-size: 14px;

@@ -50,6 +50,10 @@
     width: 45%;
     margin: 60px 0 119px;
   }
+
+  .movies__filter {
+    padding-bottom: 38px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -62,8 +66,6 @@
     column-gap: 20px;
     row-gap: 36px;
   }
-
-
 
   .movies__button-more {
     width: 25%;
