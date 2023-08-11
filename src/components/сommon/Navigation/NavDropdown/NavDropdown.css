@@ -1,6 +1,7 @@
 .nav__dropdown {
   display: grid;
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-rows: 144px 66% min-content;
+  text-align: center;
   position: fixed;
   background-color: white;
   height: 100vh;
@@ -15,15 +16,12 @@
 }
 
 .nav__menu {
-  display: grid;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-  width: 100%;
-  grid-template-rows: 16% 10% 10%;
-  margin: 0 auto;
-  justify-items: center;
   list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .nav__menu-link {
@@ -38,17 +36,17 @@
 
 .nav__menu-link_active {
   border-bottom: 2px solid #000;
-  padding-bottom: 7px;
+  padding-bottom: 9px;
 }
 
 .nav__button-profile {
-  margin: 0 auto 46px;
+  margin: 0 auto;
 }
 
 .nav__close {
-  width: 22px;
-  justify-self: flex-end;
+  width: 30px;
   padding: 13.4px 13.4px 0 0;
+  justify-self: flex-end;
 }
 
 @media screen and (min-width: 620px) {

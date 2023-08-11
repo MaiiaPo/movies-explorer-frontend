@@ -22,20 +22,26 @@ function Auth({title, name, children, button, buttonValue, isRegister}) {
             {children}
           </div>
           {button &&
-            <input type="submit" value={buttonValue} className={`auth__submit ${isRegister ? 'auth__submit_register' : ''}`}/>}
+              <div className="auth__buttons">
+              <input type="submit" value={buttonValue} className={`auth__submit ${isRegister ? 'auth__submit_register' : ''}`}/>
+              {
+                isRegister ? (
+                  <p className="auth__register-text">
+                      Уже зарегистированы?  <Link to='/signin' className="auth__link">Войти</Link>
+                  </p>
+                ) : (
+                  <p className="auth__register-text">
+                      Ещё не зарегистрированы?  <Link to='/signup' className="auth__link">Регистрация</Link>
+                  </p>
+                )
+              }
+              </div>
+            }
+
+
         </fieldset>
       </form>
-      {
-        isRegister ? (
-          <p className="auth__register-text">
-            Уже зарегистированы?  <Link to='/signin' className="auth__link">Войти</Link>
-          </p>
-        ) : (
-          <p className="auth__register-text">
-            Ещё не зарегистрированы?  <Link to='/signup' className="auth__link">Регистрация</Link>
-          </p>
-        )
-      }
+
     </section>
   )
 }

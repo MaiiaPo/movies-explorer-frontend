@@ -1,6 +1,8 @@
 .App {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   font-family: 'Inter', 'Arial', sans-serif;
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
 }

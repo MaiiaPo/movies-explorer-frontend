@@ -22,8 +22,9 @@
 }
 
 .button-profile__icon {
-  width: 12px;
+  width: 14px;
   padding: 7px;
   border-radius: 50px;
   background: #F9F9F9;
+  margin-left: 4px;
 }

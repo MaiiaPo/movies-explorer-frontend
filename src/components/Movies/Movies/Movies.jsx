@@ -1,7 +1,6 @@
 import './Movies.css';
 import SearchForm from "../SearchForm/SearchForm";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
-import Footer from "../../сommon/Footer/Footer";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import Words from "../../../images/movies/33 слова о дизайне.jpg";
 import Design from "../../../images/movies/Киноальманах 100 лет дизайна.jpg";
@@ -154,7 +153,6 @@ function Movies() {
         }
       </ul>
       <button className="movies__button-more" type="button">Еще</button>
-      <Footer/>
     </main>
   )
 }
