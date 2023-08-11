@@ -1,7 +1,6 @@
 import '../Movies/Movies.css';
 import './SavedMovies.css';
 import SearchForm from "../SearchForm/SearchForm";
-import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import Words from "../../../images/movies/33 слова о дизайне.jpg";
 import Design from "../../../images/movies/Киноальманах 100 лет дизайна.jpg";
@@ -16,9 +15,6 @@ function SavedMovies() {
       <div className="movies__filter">
         <div className="movies__search-form-container">
           <SearchForm />
-        </div>
-        <div className="movies__checkbox-container">
-          <FilterCheckbox />
         </div>
       </div>
       <ul className="movies__list movies__list_saved">

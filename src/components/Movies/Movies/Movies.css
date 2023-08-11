@@ -7,17 +7,9 @@
 
 .movies__filter {
   margin: 81px 14px 0;
-  padding-bottom: 44px;
+  padding-bottom: 45px;
   border-bottom: 1px solid #E8E8E8;
   width: 100%;
-}
-
-.movies__checkbox-container {
-  display: flex;
-  margin: 0 auto;
-  width: 100%;
-  justify-content: center;
-  padding-top: 44px;
 }
 
 .movies__list {
@@ -47,13 +39,9 @@
 }
 
 @media screen and (min-width: 768px) {
-  .movies__checkbox-container {
-    padding-top: 34px;
-  }
-
   .movies__list {
     grid-template-columns: 1fr 1fr;
-    padding-top: 74px;
+    padding-top: 80px;
     column-gap: 30px;
     row-gap: 31px;
   }
