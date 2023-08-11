@@ -53,11 +53,11 @@
   .nav__dropdown {
     max-width: 520px;
     left: calc(100vw - 520px);
-    grid-template-rows: 135px 5fr 1fr;
+    grid-template-rows: 144px 75% min-content;
   }
 
   .nav__menu {
-    grid-template-rows: 11% 13% 10%;
+    padding-top: 18px;
   }
 
   .nav__close {

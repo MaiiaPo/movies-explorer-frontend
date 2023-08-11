@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .auth__logo {
@@ -102,24 +104,26 @@
 }
 
 @media screen and (min-width: 768px) {
+  .auth {
+    width: 396px;
+    padding-top: 176px;
+  }
+  .auth__logo {
+    padding-top: 56px;
+  }
+
   .auth__title {
     padding-top: 36px;
+    align-self: flex-start;
   }
 
   .auth__form-set {
     padding: 40px 0 0;
+    grid-template-rows: 2fr 1fr;
   }
 
   .auth__route {
     align-self: flex-start;
-  }
-
-  .auth__title {
-    width: 100%;
-  }
-
-  .auth__form {
-    width: 100%;
   }
 
   .auth__input, .auth__submit {
@@ -129,12 +133,8 @@
   }
 
   .auth__submit {
-    margin-top: 40%;
+    margin-top: 57px;
     width: 392px;
-  }
-
-  .auth__submit_register {
-    margin-top: 50px;
   }
 
   .auth__register-text {

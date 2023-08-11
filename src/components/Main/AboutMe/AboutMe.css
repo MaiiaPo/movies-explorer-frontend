@@ -61,6 +61,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .about-me {
+    padding: 88px 50px;
+  }
+
   .about-me__name {
     font-size: 40px;
     font-style: normal;

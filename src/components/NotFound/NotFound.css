@@ -3,7 +3,7 @@
   justify-content: center;
   text-align: center;
   min-height: 100vh;
-  grid-template-rows: 50% 35%;
+  grid-template-rows: 50% 25%;
 }
 
 .not-found__error {
@@ -35,7 +35,7 @@
 
 @media screen and (min-width: 768px) {
   .not-found {
-    grid-template-rows: 60% 35%;
+    grid-template-rows: 68% 20%;
   }
 
   .not-found__error {

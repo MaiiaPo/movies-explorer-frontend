@@ -19,7 +19,7 @@ function App() {
       {pathHeader.includes(location.pathname) && (
         <Header />
       )}
-      <main>
+      <main className="main">
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/movies" element={<Movies />} />

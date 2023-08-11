@@ -37,12 +37,17 @@
 }
 
 @media screen and (min-width: 768px) {
+  .search__input {
+    font-size: 14px;
+    padding-left: 20px;
+  }
+
   .search__submit {
     width: 70px;
   }
 
   .search__form {
-    width: 92%;
+    width: 100%;
   }
 }
 

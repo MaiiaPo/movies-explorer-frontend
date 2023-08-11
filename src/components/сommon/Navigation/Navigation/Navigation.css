@@ -54,3 +54,18 @@
   line-height: 18px;
   text-decoration: none;
 }
+
+@media screen and (min-width: 768px) {
+  .nav__auth {
+    gap: 30px;
+  }
+
+  .nav__auth-item {
+    font-size: 12px;
+  }
+
+  .nav__auth-item_button {
+    width: 76px;
+    height: 32px;
+  }
+}
