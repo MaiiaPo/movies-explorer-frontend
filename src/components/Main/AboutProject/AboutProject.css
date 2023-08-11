@@ -74,7 +74,7 @@
   }
 
   .about-project__description-item {
-    width: 319px;
+    max-width: 319px;
   }
 
   .about-project__description-title {

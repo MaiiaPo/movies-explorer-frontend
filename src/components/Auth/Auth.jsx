@@ -23,7 +23,7 @@ function Auth({title, name, children, button, buttonValue, isRegister}) {
           </div>
           {button &&
               <div className="auth__buttons">
-              <input type="submit" value={buttonValue} className={`auth__submit ${isRegister ? 'auth__submit_register' : ''}`}/>
+              <input type="submit" value={buttonValue} className="auth__submit"/>
               {
                 isRegister ? (
                   <p className="auth__register-text">

@@ -65,12 +65,17 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .movies__list_saved {
+    padding-bottom: 240px;
+  }
+
   .movies__list {
     grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
-    row-gap: 33px;
-    padding-bottom: 0;
+    row-gap: 36px;
   }
+
+
 
   .movies__button-more {
     width: 25%;

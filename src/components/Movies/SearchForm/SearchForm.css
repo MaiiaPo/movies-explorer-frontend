@@ -53,10 +53,6 @@
 
 
 @media screen and (min-width: 1280px) {
-  .search__form {
-    width: 89.5%;
-  }
-
   .search__input {
     padding-left: 27px;
     font-size: 14px;

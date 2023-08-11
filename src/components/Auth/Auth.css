@@ -144,6 +144,10 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .auth {
+    padding-top: 0;
+  }
+
   .auth__form-set {
     padding: 8px 0 0;
   }
@@ -160,7 +164,4 @@
     font-size: 14px;
   }
 
-  .auth__submit {
-    margin-top: 40%;
-  }
 }
