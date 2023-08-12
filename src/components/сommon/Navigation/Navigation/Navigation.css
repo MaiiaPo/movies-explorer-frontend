@@ -1,6 +1,7 @@
 .nav {
   display: grid;
   justify-items: end;
+  width: 100%;
 }
 
 .nav__default {
@@ -62,10 +63,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .nav {
-    width: 100%;
-  }
-
   .nav__auth {
     gap: 30px;
   }
