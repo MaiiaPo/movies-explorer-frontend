@@ -12,7 +12,7 @@ function Register() {
       buttonValue="Зарегистрироваться"
       isRegister={true}
     >
-      <label className="auth__label" for="user-name">
+      <label className="auth__label" htmlFor="user-name">
         Имя
       </label>
       <input
@@ -29,7 +29,7 @@ function Register() {
       <span className="auth__input-error">
         Что-то пошло не так...
       </span>
-      <label className="auth__label" for="user-email">
+      <label className="auth__label" htmlFor="user-email">
         E-mail
       </label>
       <input
@@ -43,7 +43,7 @@ function Register() {
         required
         onChange={handleChange}
       />
-      <label className="auth__label" for="user-password">
+      <label className="auth__label" htmlFor="user-password">
         Пароль
       </label>
       <input

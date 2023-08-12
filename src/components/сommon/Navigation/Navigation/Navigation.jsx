@@ -2,7 +2,6 @@ import React from 'react';
 import './Navigation.css';
 import { useLocation, Link } from "react-router-dom";
 import Menu from '../../../../images/menu.svg';
-import Close from '../../../../images/close.svg';
 import ButtonProfile from "../../ButtonProfile/ButtonProfile";
 import useWindowDimensions from "../../../../hooks/windowDimensions";
 import NavDropdown from "../NavDropdown/NavDropdown";
@@ -25,10 +24,12 @@ function Navigation() {
         </div>
       ) : (
         width < 768 && location.pathname !== '/'  ? (
-          <div className="nav__default">
-            <img className="nav__icon" onClick={handleShowMenu} src={Menu} alt="Навигационное меню" />
+          <>
+            <button type="button" className="nav__default">
+              <img className="nav__icon" onClick={handleShowMenu} src={Menu} alt="Навигационное меню" />
+            </button>
             {showMenu && <NavDropdown onClose={handleShowMenu} />}
-          </div>
+          </>
         ) : (
           <div className="nav__route">
             <div className="nav__route-links">

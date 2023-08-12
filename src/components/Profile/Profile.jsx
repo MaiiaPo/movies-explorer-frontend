@@ -10,7 +10,7 @@ function Profile() {
       <h1 className="profile__title">Привет, Виталий!</h1>
       <form className="profile__form">
         <div className="profile__input-field profile__input-field_border profile_input-field_name">
-          <label className="profile__label" for="user-name">
+          <label className="profile__label" htmlFor="user-name">
             Имя
           </label>
           <input
@@ -28,7 +28,7 @@ function Profile() {
         </div>
 
         <div className="profile__input-field">
-          <label className="profile__label" for="user-email">
+          <label className="profile__label" htmlFor="user-email">
             E-mail
           </label>
           <input

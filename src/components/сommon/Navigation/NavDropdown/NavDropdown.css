@@ -43,10 +43,13 @@
   margin: 0 auto;
 }
 
-.nav__close {
+.nav__button-close {
   width: 30px;
-  padding: 13.4px 13.4px 0 0;
+  height: 30px;
+  padding: 13.4px 45px 0 0;
   justify-self: flex-end;
+  background-color: transparent;
+  border: none;
 }
 
 @media screen and (min-width: 620px) {
@@ -60,9 +63,8 @@
     padding-top: 18px;
   }
 
-  .nav__close {
-    width: 30px;
-    padding: 22.4px 21.4px 0 0;
+  .nav__button-close {
+    padding: 22.4px 53px 0 0;
   }
 
   .nav__overlay {

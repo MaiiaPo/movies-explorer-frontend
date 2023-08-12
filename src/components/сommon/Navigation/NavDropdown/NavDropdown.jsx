@@ -10,7 +10,9 @@ function NavDropdown( { onClose } ) {
   return (
     <>
       <div className="nav__dropdown">
-        <img className="nav__close" src={Close} alt="Закрыть меню" onClick={onClose} />
+        <button className="nav__button-close">
+          <img className="nav__close" src={Close} alt="Закрыть меню" onClick={onClose} />
+        </button>
         <ul className="nav__menu">
           <li className="nav__menu-item">
             <Link

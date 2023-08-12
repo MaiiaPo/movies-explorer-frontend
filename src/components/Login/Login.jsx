@@ -12,7 +12,7 @@ function Login() {
       buttonValue="Войти"
       isRegister={false}
     >
-      <label className="auth__label" for="user-email">
+      <label className="auth__label" htmlFor="user-email">
         E-mail
       </label>
       <input
@@ -30,7 +30,7 @@ function Login() {
       <span className="auth__input-error">
         Что-то пошло не так...
       </span>
-      <label className="auth__label" for="user-password">
+      <label className="auth__label" htmlFor="user-password">
         Пароль
       </label>
       <input
