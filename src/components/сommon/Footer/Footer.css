@@ -59,6 +59,7 @@
 @media screen and (min-width: 768px) {
   .footer {
     width: 93%;
+    padding-top: 45px;
   }
 
   .footer__links {

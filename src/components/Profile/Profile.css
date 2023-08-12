@@ -77,7 +77,7 @@
 
   .profile {
     align-items: start;
-    grid-template-rows: 32% 54% min-content;
+    grid-template-rows: 215px 370px min-content;
     padding-top: 50px;
     height: 80vh;
   }
