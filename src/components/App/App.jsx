@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import { auth } from "../../utils/auth";
+import api from "../../utils/api";
 
 import Main from '../Main/Main/Main';
 import Movies from '../Movies/Movies/Movies';
@@ -13,7 +14,9 @@ import Register from '../Register/Register'
 import Header from '../сommon/Header/Header'
 import NotFound from "../NotFound/NotFound";
 import Footer from "../сommon/Footer/Footer";
+
 import ProtectedRouteElement from "../сommon/ProtectedRoute/ProtectedRoute";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
   const location = useLocation();
@@ -24,6 +27,9 @@ function App() {
 
   // Авторизован пользователь или нет
   const [loggedIn, setLoggedIn] = useState(false);
+
+  const [currentUser, setCurrentUser] = useState(null);
+  const [successUpdateUser, setSuccessUpdateUser] = useState(false);
 
   function handleRegister ({ username, email, password }) {
     auth.register(username, email, password)
@@ -72,37 +78,70 @@ function App() {
     navigate('/', { replace: true });
   }
 
+  useEffect(() => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt){
+      loggedIn && Promise.all([api.getUserData()])
+        .then(([userData]) => {
+          setLoggedIn(true);
+          setCurrentUser(userData);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }, [loggedIn]);
+
+  function handleUpdateProfile(userData) {
+    api.updateUserData(userData).then((currentUser) => {
+      setCurrentUser(currentUser);
+      setSuccessUpdateUser(true)
+    })
+      .catch((err) => {
+        setSuccessUpdateUser(false)
+        console.error(err);
+      })
+  }
+
   return (
     <div className="App">
-      {pathHeader.includes(location.pathname) && (
-        <Header loggedIn={loggedIn} />
-      )}
-      <main className="main">
-        <Routes>
-          <Route path="/signin" element={<Login handleLogin={handleLogin} />} />
-          <Route path="/signup" element={<Register handleRegister={handleRegister} />} />
-          <Route path="/" element={<Main handleRegister={handleRegister} />}/>
-          <Route path="*" element={<NotFound />} />
+      <CurrentUserContext.Provider value={currentUser}>
+        {pathHeader.includes(location.pathname) && (
+          <Header loggedIn={loggedIn} />
+        )}
+        <main className="main">
+          <Routes>
+            <Route path="/signin" element={<Login handleLogin={handleLogin} />} />
+            <Route path="/signup" element={<Register handleRegister={handleRegister} />} />
+            <Route path="/" element={<Main handleRegister={handleRegister} />}/>
+            <Route path="*" element={<NotFound />} />
 
-          <Route path="/movies" element={
-            <ProtectedRouteElement element={Movies} loggedIn={loggedIn}/>
-          }
-          />
+            <Route path="/movies" element={
+              <ProtectedRouteElement element={Movies} loggedIn={loggedIn}/>
+            }
+            />
 
-          <Route path="/saved-movies" element={
-            <ProtectedRouteElement element={SavedMovies} loggedIn={loggedIn}/>
-          }
-          />
+            <Route path="/saved-movies" element={
+              <ProtectedRouteElement element={SavedMovies} loggedIn={loggedIn}/>
+            }
+            />
 
-          <Route path="/profile" element={
-            <ProtectedRouteElement element={Profile} loggedIn={loggedIn} handleSignOut={handleSignOut}/>
-          }
-          />
-        </Routes>
-      </main>
-      {pathFooter.includes(location.pathname) && (
-        <Footer />
-      )}
+            <Route path="/profile" element={
+              <ProtectedRouteElement
+                element={Profile}
+                loggedIn={loggedIn}
+                handleSignOut={handleSignOut}
+                handleUpdateProfile={handleUpdateProfile}
+                successUpdate={successUpdateUser}
+              />
+            }
+            />
+          </Routes>
+        </main>
+        {pathFooter.includes(location.pathname) && (
+          <Footer />
+        )}
+      </CurrentUserContext.Provider>
     </div>
   );
 }
