@@ -2,7 +2,7 @@ import './Profile.css';
 import {useForm} from "../../hooks/useForm";
 import {Link} from "react-router-dom";
 
-function Profile() {
+function Profile({ handleSignOut }) {
   const { handleChange } = useForm({});
 
   return (
@@ -48,7 +48,13 @@ function Profile() {
       <div className="profile__buttons">
         <button className="profile__button" type="button" >Редактировать</button>
         <Link className="profile__route" to="/">
-          <button className="profile__button profile__button_color" type="button">Выйти из аккаунта</button>
+          <button
+            className="profile__button profile__button_color"
+            type="button"
+            onClick={handleSignOut}
+          >
+            Выйти из аккаунта
+          </button>
         </Link>
       </div>
     </section>

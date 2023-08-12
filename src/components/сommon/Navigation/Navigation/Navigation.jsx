@@ -6,9 +6,8 @@ import ButtonProfile from "../../ButtonProfile/ButtonProfile";
 import useWindowDimensions from "../../../../hooks/windowDimensions";
 import NavDropdown from "../NavDropdown/NavDropdown";
 
-function Navigation() {
+function Navigation({ loggedIn }) {
   const [showMenu, setShowMenu] = React.useState(false);
-  let location = useLocation();
   const { width } = useWindowDimensions();
 
   function handleShowMenu () {
@@ -17,13 +16,8 @@ function Navigation() {
 
   return (
     <nav className="nav">
-      {location.pathname === '/' ? (
-        <div className="nav__auth">
-          <Link className="nav__auth-item" to="/signup">Регистрация</Link>
-          <Link className="nav__auth-item nav__auth-item_button" to="/signin">Войти</Link>
-        </div>
-      ) : (
-        width < 768 && location.pathname !== '/'  ? (
+      { loggedIn ? (
+        width < 768 ? (
           <>
             <button type="button" className="nav__default">
               <img className="nav__icon" onClick={handleShowMenu} src={Menu} alt="Навигационное меню" />
@@ -41,9 +35,13 @@ function Navigation() {
               </Link>
             </div>
             <div className="header__button-profile"><ButtonProfile/></div>
-        </div>
+          </div>
         )
-
+      ) : (
+        <div className="nav__auth">
+          <Link className="nav__auth-item" to="/signup">Регистрация</Link>
+          <Link className="nav__auth-item nav__auth-item_button" to="/signin">Войти</Link>
+        </div>
       )
     }
     </nav>

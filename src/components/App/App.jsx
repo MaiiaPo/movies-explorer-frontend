@@ -66,40 +66,42 @@ function App() {
     }
   }
 
+  function handleSignOut() {
+    localStorage.removeItem('jwt');
+    setLoggedIn(false);
+    navigate('/', { replace: true });
+  }
+
   return (
     <div className="App">
       {pathHeader.includes(location.pathname) && (
-        <Header />
+        <Header loggedIn={loggedIn} />
       )}
       <main className="main">
         <Routes>
           <Route path="/signin" element={<Login handleLogin={handleLogin} />} />
-          <Route path="/signup" element={<Register handleRegister={handleRegister}/>} />
+          <Route path="/signup" element={<Register handleRegister={handleRegister} />} />
+          <Route path="/" element={<Main handleRegister={handleRegister} />}/>
           <Route path="*" element={<NotFound />} />
 
-          <Route path="/" element={
-              <ProtectedRouteElement element={Main} loggedIn={loggedIn}/>
-            }
-          />
-
           <Route path="/movies" element={
-              <ProtectedRouteElement element={Movies} loggedIn={loggedIn}/>
-            }
+            <ProtectedRouteElement element={Movies} loggedIn={loggedIn}/>
+          }
           />
 
           <Route path="/saved-movies" element={
-              <ProtectedRouteElement element={SavedMovies} loggedIn={loggedIn}/>
-            }
+            <ProtectedRouteElement element={SavedMovies} loggedIn={loggedIn}/>
+          }
           />
 
           <Route path="/profile" element={
-              <ProtectedRouteElement element={Profile} loggedIn={loggedIn}/>
-            }
+            <ProtectedRouteElement element={Profile} loggedIn={loggedIn} handleSignOut={handleSignOut}/>
+          }
           />
         </Routes>
       </main>
       {pathFooter.includes(location.pathname) && (
-          <Footer />
+        <Footer />
       )}
     </div>
   );
