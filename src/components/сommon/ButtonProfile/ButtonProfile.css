@@ -1,0 +1,30 @@
+.button-profile {
+  width: 100px;
+  height: 32px;
+  align-self: end;
+  justify-self: center;
+  border-radius: 40px;
+  background: #FFF;
+  box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.08);
+}
+
+.button-profile__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #000;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 12px;
+  text-decoration: none;
+}
+
+.button-profile__icon {
+  width: 14px;
+  padding: 7px;
+  border-radius: 50px;
+  background: #F9F9F9;
+  margin-left: 4px;
+}

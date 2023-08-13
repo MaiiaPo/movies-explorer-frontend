@@ -1,0 +1,74 @@
+.movies {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.movies__filter {
+  margin: 81px 14px 0;
+  padding-bottom: 45px;
+  border-bottom: 1px solid #E8E8E8;
+  width: 100%;
+}
+
+.movies__list {
+  padding: 50px 0 0 0;
+  display: grid;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 35px;
+  list-style: none;
+}
+
+.movies__list_saved {
+  padding-bottom: 190px;
+}
+
+.movies__button-more {
+  width: 75%;
+  height: 36px;
+  margin: 64px auto 120px;
+  border: none;
+  border-radius: 6px;
+  background: #F9F9F9;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+@media screen and (min-width: 768px) {
+  .movies__list {
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    column-gap: 30px;
+    row-gap: 31px;
+  }
+
+  .movies__button-more {
+    width: 45%;
+    margin: 60px 0 119px;
+  }
+
+  .movies__filter {
+    padding-bottom: 38px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .movies__list_saved {
+    padding-bottom: 240px;
+  }
+
+  .movies__list {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 36px;
+  }
+
+  .movies__button-more {
+    width: 25%;
+    margin-bottom: 80px;
+  }
+}

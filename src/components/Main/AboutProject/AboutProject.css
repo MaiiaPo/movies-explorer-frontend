@@ -1,0 +1,134 @@
+.about-project__description {
+  display: grid;
+  list-style-type: none;
+  padding: 60px 0 0;
+  margin: 0;
+  gap: 56px;
+}
+
+.about-project__description-title {
+  margin: 0;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+  padding-bottom: 18px;
+}
+
+.about-project__description-text {
+  margin: 0;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.about-project__duration {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-top: 60px;
+}
+
+.about-project__duration-weeks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.about-project__duration-weeks_one {
+  background-color: #000;
+  color: #fff;
+}
+
+.about-project__duration-weeks_four {
+  background-color: #F2F2F2;
+}
+
+.about-project__type {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-top: 10px;
+}
+
+.about-project__type-item {
+  color: #A0A0A0;
+  text-align: center;
+  font-family: 'Suisse Intl', 'Arial', sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media screen and (min-width: 768px) {
+  .about-project__description {
+    grid-template-columns: 1fr 1fr;
+    padding: 70px 0 0;
+    gap: 30px;
+  }
+
+  .about-project__description-item {
+    max-width: 319px;
+  }
+
+  .about-project__description-title {
+    font-size: 20px;
+    letter-spacing: -0.8px;
+    padding-bottom: 23px;
+  }
+
+  .about-project__description-text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-project__duration {
+    padding-top: 95px;
+    grid-template-columns: 1fr 4fr;
+  }
+
+  .about-project__duration-weeks {
+    font-size: 14px;
+  }
+
+  .about-project__type {
+    grid-template-columns: 1fr 4fr;
+  }
+
+  .about-project__type-item {
+    font-size: 14px;
+    padding-top: 4px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .about-project {
+    padding: 110px 70px;
+  }
+
+  .about-project__description-item {
+    max-width: 550px;
+  }
+
+  .about-project__description-title {
+    padding-bottom: 27px;
+  }
+
+  .about-project__description-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .about-project__duration {
+    padding-top: 110px;
+  }
+}
+
