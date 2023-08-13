@@ -1,4 +1,6 @@
-class Api {
+import {BEATFILM} from "./constants";
+
+class MainApi {
   constructor({headers, address}) {
     this._headers = headers;
     this._address = address;
@@ -6,7 +8,6 @@ class Api {
 
   _checkResponse(res) {
     if (res.ok) return res.json();
-    // eslint-disable-next-line prefer-promise-reject-errors
     return Promise.reject(`Ошибка ${res.status}`);
   }
 
@@ -31,9 +32,35 @@ class Api {
       }),
     })
   }
+
+  getSavedMovies() {
+    return this._request(`/movies`, {
+      headers: this._headers,
+    })
+  }
+
+  saveMovie(movie) {
+    return this._request(`/movies`, {
+      method: 'POST',
+      body: JSON.stringify({
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: `${BEATFILM}${movie.image.url}`,
+        trailerLink: movie.trailerLink,
+        thumbnail: `${BEATFILM}${movie.image.formats.thumbnail.url}`,
+        movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN
+      }),
+      headers: this._headers
+    }).then((res) => this._checkResponse(res));
+  }
 }
 
-const api = new Api({
+const api = new MainApi({
   address: 'https://api.maiiapo-movies.nomoredomains.xyz',
   headers: {
     'Content-Type': 'application/json',

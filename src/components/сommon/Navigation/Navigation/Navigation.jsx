@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navigation.css';
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Menu from '../../../../images/menu.svg';
 import ButtonProfile from "../../ButtonProfile/ButtonProfile";
 import useWindowDimensions from "../../../../hooks/windowDimensions";

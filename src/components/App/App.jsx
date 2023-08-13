@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import { auth } from "../../utils/auth";
-import api from "../../utils/api";
+import api from "../../utils/mainApi";
 
 import Main from '../Main/Main/Main';
 import Movies from '../Movies/Movies/Movies';
@@ -17,6 +17,7 @@ import Footer from "../сommon/Footer/Footer";
 
 import ProtectedRouteElement from "../сommon/ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import {moviesApi} from "../../utils/moviesApi";
 
 function App() {
   const location = useLocation();
@@ -30,6 +31,9 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null);
   const [successUpdateUser, setSuccessUpdateUser] = useState(false);
+
+  const [movies, setMovies] = useState(null);
+  const [savedMovies, setSavedMovies] = useState([]);
 
   function handleRegister ({ username, email, password }) {
     auth.register(username, email, password)
@@ -81,16 +85,42 @@ function App() {
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
     if (jwt){
-      loggedIn && Promise.all([api.getUserData()])
-        .then(([userData]) => {
-          setLoggedIn(true);
-          setCurrentUser(userData);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+      if (loggedIn) {
+        if (localStorage.getItem('movies')) {
+          setMovies(JSON.parse(localStorage.getItem('movies')));
+        } else {
+          moviesApi
+            .getMovies()
+            .then((movies) => {
+              localStorage.setItem('movies', JSON.stringify(movies));
+              setMovies(movies);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
+
+        api
+          .getSavedMovies()
+          .then((data) => {
+            setSavedMovies(data);
+            localStorage.setItem('savedMovies', JSON.stringify(data));
+            console.log(savedMovies)
+          })
+          .catch((error) => console.log(error));
+        console.log(movies)
+        api.getUserData()
+          .then((userData) => {
+            setLoggedIn(true);
+            setCurrentUser(userData);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
     }
   }, [loggedIn]);
+
 
   function handleUpdateProfile(userData) {
     api.updateUserData(userData).then((currentUser) => {
@@ -117,12 +147,19 @@ function App() {
             <Route path="*" element={<NotFound />} />
 
             <Route path="/movies" element={
-              <ProtectedRouteElement element={Movies} loggedIn={loggedIn}/>
+              <ProtectedRouteElement
+                element={Movies}
+                loggedIn={loggedIn}
+                movies={movies}
+              />
             }
             />
 
             <Route path="/saved-movies" element={
-              <ProtectedRouteElement element={SavedMovies} loggedIn={loggedIn}/>
+              <ProtectedRouteElement
+                element={SavedMovies}
+                savedMovies={savedMovies}
+                loggedIn={loggedIn}/>
             }
             />
 

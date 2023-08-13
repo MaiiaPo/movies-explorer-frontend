@@ -1,13 +1,25 @@
 import './MoviesCard.css';
 import Like from "../../../images/like.svg";
 import Dislike from "../../../images/dislike.svg";
-function MoviesCard({name, image, altImage, isLike, isSaved}) {
+import {BEATFILM} from "../../../utils/constants";
+function MoviesCard({ movie }) {
+  const isLike = true;
+  const isSaved = false;
+
+  const imageUrl = movie.image.url ? `${BEATFILM}${movie.image.url}` : movie.image;
   return (
     <div className="card">
       <div className="card__block">
-        <img className="card__img" src={image} alt={altImage}/>
+        <a
+          className="moviescard__image-container"
+          href={movie.trailerLink}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="card__img" src={imageUrl} alt={movie.nameRU}/>
+        </a>
         <div className="card__info">
-          <h2 className="card__name">{ name }</h2>
+          <h2 className="card__name">{movie.nameRU}</h2>
           <div className="card__like">
             {isLike && !isSaved &&
               <img className="card__like-icon" src={Like} alt="Иконка лайка"/>
@@ -18,7 +30,7 @@ function MoviesCard({name, image, altImage, isLike, isSaved}) {
           </div>
         </div>
       </div>
-      <p className="card__duration">1ч 42м</p>
+      <p className="card__duration">{movie.duration}</p>
     </div>
 
   )
