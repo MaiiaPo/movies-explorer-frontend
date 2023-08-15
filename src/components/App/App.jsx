@@ -104,11 +104,10 @@ function App() {
           .getSavedMovies()
           .then((data) => {
             setSavedMovies(data);
-            localStorage.setItem('savedMovies', JSON.stringify(data));
             console.log(savedMovies)
           })
           .catch((error) => console.log(error));
-        console.log(movies)
+
         api.getUserData()
           .then((userData) => {
             setLoggedIn(true);
@@ -133,6 +132,16 @@ function App() {
       })
   }
 
+  async  function handleSaveMovie(movie) {
+    console.log(movie)
+    console.log(savedMovies)
+    await api.saveMovie(movie).catch((error) => {})
+    await api.getSavedMovies().then((data) => {
+      setSavedMovies(data);
+      console.log(savedMovies)})
+
+  }
+
   return (
     <div className="App">
       <CurrentUserContext.Provider value={currentUser}>
@@ -151,6 +160,8 @@ function App() {
                 element={Movies}
                 loggedIn={loggedIn}
                 movies={movies}
+                savedMovies={savedMovies}
+                onSaveMovie={handleSaveMovie}
               />
             }
             />

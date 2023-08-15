@@ -35,6 +35,12 @@
   height: 24px;
 }
 
+.card__like-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
   .card__img {
     width: 339px;

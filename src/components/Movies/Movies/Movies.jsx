@@ -2,7 +2,7 @@ import './Movies.css';
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
-function Movies({ movies }) {
+function Movies({ movies, savedMovies, onSaveMovie }) {
   return (
     <main className="movies">
       <div className="movies__filter">
@@ -10,7 +10,11 @@ function Movies({ movies }) {
           <SearchForm />
         </div>
       </div>
-      <MoviesCardList movies={movies} />
+      <MoviesCardList
+        movies={movies}
+        savedMovies={savedMovies}
+        onSaveMovie={onSaveMovie}
+      />
       <button className="movies__button-more" type="button">Еще</button>
     </main>
   )
