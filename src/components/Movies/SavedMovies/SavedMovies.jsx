@@ -3,7 +3,7 @@ import './SavedMovies.css';
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
-function SavedMovies({ savedMovies }) {
+function SavedMovies({ savedMovies, onDeleteMovie }) {
   return (
     <main className="movies">
       <div className="movies__filter">
@@ -16,7 +16,11 @@ function SavedMovies({ savedMovies }) {
           <p className="movies__empty-text">Ещё нет сохранённых фильмов</p>
         </div>
       }
-      <MoviesCardList movies={ savedMovies } />
+      <MoviesCardList
+        movies={savedMovies}
+        savedMovies={savedMovies}
+        onDeleteMovie={onDeleteMovie}
+      />
     </main>
   )
 }

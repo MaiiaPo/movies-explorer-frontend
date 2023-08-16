@@ -100,11 +100,9 @@ function App() {
             });
         }
 
-        api
-          .getSavedMovies()
+        api.getSavedMovies()
           .then((data) => {
             setSavedMovies(data);
-            console.log(savedMovies)
           })
           .catch((error) => console.log(error));
 
@@ -132,14 +130,27 @@ function App() {
       })
   }
 
-  async  function handleSaveMovie(movie) {
-    console.log(movie)
-    console.log(savedMovies)
-    await api.saveMovie(movie).catch((error) => {})
-    await api.getSavedMovies().then((data) => {
+  function handleSaveMovie(movie) {
+    api.saveMovie(movie)
+      .catch((error) => {console.error(error)})
+    api.getSavedMovies().then((data) => {
       setSavedMovies(data);
-      console.log(savedMovies)})
+    }).catch((error) => {console.error(error)})
+  }
 
+  function handleDeleteMovie(movieId) {
+    api.deleteMovie(movieId)
+      .then(() => {
+        const updatedSavedMovies = savedMovies.filter(
+          (movie) => movie._id !== movieId
+        );
+        setSavedMovies(updatedSavedMovies);
+      })
+      .catch((error) => {console.error(error)})
+
+    api.getSavedMovies().then((data) => {
+      setSavedMovies(data);
+    }).catch((error) => {console.error(error)})
   }
 
   return (
@@ -162,6 +173,7 @@ function App() {
                 movies={movies}
                 savedMovies={savedMovies}
                 onSaveMovie={handleSaveMovie}
+                onDeleteMovie={handleDeleteMovie}
               />
             }
             />
@@ -170,6 +182,7 @@ function App() {
               <ProtectedRouteElement
                 element={SavedMovies}
                 savedMovies={savedMovies}
+                onDeleteMovie={handleDeleteMovie}
                 loggedIn={loggedIn}/>
             }
             />

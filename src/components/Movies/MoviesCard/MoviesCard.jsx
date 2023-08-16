@@ -8,7 +8,6 @@ import {useLocation} from "react-router-dom";
 function MoviesCard({ movie, savedMovies, onSaveMovie, onDeleteMovie }) {
   const location = useLocation();
   const isSaveMoviesPage = location.pathname === '/saved-movies'
-
   const movieWithId =  savedMovies ? savedMovies.find(m => m.movieId === movie.id) : '';
 
   const isSaved = savedMovies

@@ -40,8 +40,9 @@ class MainApi {
   }
 
   saveMovie(movie) {
-    return this._request(`/movies`, {
+    return this._request('/movies', {
       method: 'POST',
+      headers: this._headers,
       body: JSON.stringify({
         country: movie.country,
         director: movie.director,
@@ -54,9 +55,15 @@ class MainApi {
         movieId: movie.id,
         nameRU: movie.nameRU,
         nameEN: movie.nameEN
-      }),
+      })
+    })
+  }
+
+  deleteMovie(id) {
+    return this._request(`/movies/${id}`, {
+      method: 'DELETE',
       headers: this._headers
-    }).then((res) => this._checkResponse(res));
+    })
   }
 }
 
