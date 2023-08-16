@@ -16,7 +16,6 @@ function Movies({ movies, savedMovies, onSaveMovie, onDeleteMovie }) {
         onSaveMovie={onSaveMovie}
         onDeleteMovie={onDeleteMovie}
       />
-      <button className="movies__button-more" type="button">Еще</button>
     </main>
   )
 }
