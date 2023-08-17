@@ -1,10 +1,18 @@
 import './SearchForm.css';
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function SearchForm({ onFilters, searchQuery }) {
   const [searchText, setSearchText] = useState('');
   const [isShortFilm, setIsShortFilm] = useState(false);
+
+  const localSearch = JSON.parse(localStorage.getItem('searchQuery'));
+
+  useEffect(() => {
+    if (localSearch) {
+      setSearchText(localSearch.searchText);
+    }
+  }, []);
 
   const getFilterShortFilm = () => {
     if (searchText !== '') {

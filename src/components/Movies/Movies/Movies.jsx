@@ -1,16 +1,31 @@
 import './Movies.css';
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function Movies({ movies, savedMovies, onSaveMovie, onDeleteMovie }) {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState({});
 
+  const searchedMovies = localStorage.getItem('searchedMovies');
+  const queries = localStorage.getItem('searchQuery');
+
+  useEffect(() => {
+    if (searchedMovies) {
+      setFilteredMovies(JSON.parse(searchedMovies));
+    }
+  }, [searchedMovies]);
+
+  useEffect(() => {
+    if (queries) {
+      setSearchQuery(JSON.parse(queries));
+    }
+  }, [queries]);
+
   const filterMovies = (query) => {
     console.log('фильтруем')
     let filtered = [];
-    localStorage.setItem('searchQueryMovies', JSON.stringify(query));
+    localStorage.setItem('searchQuery', JSON.stringify(query));
 
     if (query.isShortFilm) {
       filtered = movies.filter((m) => {
