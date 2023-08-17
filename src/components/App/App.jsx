@@ -103,6 +103,7 @@ function App() {
         api.getSavedMovies()
           .then((data) => {
             setSavedMovies(data);
+            localStorage.setItem('savedMovies', JSON.stringify(data));
           })
           .catch((error) => console.log(error));
 
@@ -117,6 +118,10 @@ function App() {
       }
     }
   }, [loggedIn]);
+
+  useEffect(() => {
+    loggedIn && localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
+  }, [savedMovies, loggedIn]);
 
 
   function handleUpdateProfile(userData) {
