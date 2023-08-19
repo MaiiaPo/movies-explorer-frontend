@@ -23,7 +23,6 @@ function Movies({ movies, savedMovies, onSaveMovie, onDeleteMovie }) {
   }, [queries]);
 
   const filterMovies = (query) => {
-    console.log('фильтруем')
     let filtered = [];
     localStorage.setItem('searchQuery', JSON.stringify(query));
 
@@ -48,8 +47,6 @@ function Movies({ movies, savedMovies, onSaveMovie, onDeleteMovie }) {
         setFilteredMovies(filtered);
         localStorage.setItem('searchedMovies', JSON.stringify(filtered));
       }
-
-    console.log('filteredMovies', filteredMovies)
   };
 
   return (

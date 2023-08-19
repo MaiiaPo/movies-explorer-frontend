@@ -136,20 +136,29 @@ function App() {
   }
 
   function handleSaveMovie(movie) {
-    api.saveMovie(movie)
-      .catch((error) => {console.error(error)})
-    api.getSavedMovies().then((data) => {
-      setSavedMovies(data);
-    }).catch((error) => {console.error(error)})
+      api.saveMovie(movie).then((res) => {
+        setSavedMovies([...savedMovies, res]);
+      })
+      .catch((error) => console.log(error));
   }
 
   function handleDeleteMovie(movieId) {
+    const searchedSavedMovies = JSON.parse(localStorage.getItem('searchedSavedMovies'));
+
     api.deleteMovie(movieId)
       .then(() => {
         const updatedSavedMovies = savedMovies.filter(
           (movie) => movie._id !== movieId
         );
         setSavedMovies(updatedSavedMovies);
+
+        if (searchedSavedMovies) {
+          const updatedSearchedSavedMovies = searchedSavedMovies.filter(
+            (movie) => movie._id !== movieId
+          );
+
+          localStorage.setItem('searchedSavedMovies', JSON.stringify(updatedSearchedSavedMovies));
+        }
       })
       .catch((error) => {console.error(error)})
 
@@ -158,7 +167,8 @@ function App() {
     }).catch((error) => {console.error(error)})
   }
 
-  return (
+
+return (
     <div className="App">
       <CurrentUserContext.Provider value={currentUser}>
         {pathHeader.includes(location.pathname) && (
