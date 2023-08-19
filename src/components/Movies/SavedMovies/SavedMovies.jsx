@@ -69,11 +69,18 @@ function SavedMovies({ savedMovies, onDeleteMovie }) {
           <p className="movies__empty-text">Ещё нет сохранённых фильмов</p>
         </div>
       }
-      <MoviesCardList
-        movies={filteredMovies}
-        savedMovies={savedMovies}
-        onDeleteMovie={onDeleteMovie}
-      />
+      {filteredMovies.length > 0 ? (
+        <MoviesCardList
+          movies={filteredMovies}
+          savedMovies={savedMovies}
+          onDeleteMovie={onDeleteMovie}
+        />
+      ) : (
+        <div className="movies__empty-text movies__empty-text_padding">
+          По вашему запросу ничего не найдено
+        </div>
+        )
+      }
     </main>
   )
 }

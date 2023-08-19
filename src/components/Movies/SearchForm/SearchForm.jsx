@@ -6,13 +6,11 @@ function SearchForm({ onFilters, searchQuery }) {
   const [searchText, setSearchText] = useState('');
   const [isShortFilm, setIsShortFilm] = useState(false);
 
-  const localSearch = JSON.parse(localStorage.getItem('searchQuery'));
-
   useEffect(() => {
-    if (localSearch) {
-      setSearchText(localSearch.searchText);
+    if (searchQuery.searchText) {
+      setSearchText(searchQuery.searchText);
     }
-  }, []);
+  }, [searchQuery.searchText]);
 
   const getFilterShortFilm = () => {
     if (searchText !== '') {

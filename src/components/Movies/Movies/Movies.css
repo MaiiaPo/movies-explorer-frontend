@@ -60,6 +60,10 @@
   letter-spacing: -2px;
 }
 
+.movies__empty-text_padding {
+  padding-top: 40px;
+}
+
 @media screen and (min-width: 768px) {
   .movies__list {
     grid-template-columns: 1fr 1fr;
