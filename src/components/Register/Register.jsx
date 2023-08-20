@@ -1,9 +1,18 @@
 import Auth from "../Auth/Auth";
 import {useForm} from "../../hooks/useForm";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useEffect} from "react";
+import {validateEmail, validateName, validatePassword} from "../../utils/validation";
 
-function Register({ handleRegister }) {
-  const {values, handleChange} = useForm({})
+function Register({ handleRegister, loggedIn }) {
+  const navigate = useNavigate();
+  const { values, handleChange, isValid }  = useForm({})
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate('/movies');
+    }
+  }, [loggedIn]);
 
   return (
     <Auth title="Добро пожаловать!">
@@ -31,8 +40,8 @@ function Register({ handleRegister }) {
               required
               onChange={handleChange}
             />
-            <span className="auth__input-error">
-              Что-то пошло не так...
+            <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+              {validateName(values.name).message}
             </span>
             <label className="auth__label" htmlFor="user-email">
               E-mail
@@ -49,12 +58,16 @@ function Register({ handleRegister }) {
               required
               onChange={handleChange}
             />
+            <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+              {validateEmail(values.email).message}
+            </span>
             <label className="auth__label" htmlFor="user-password">
               Пароль
             </label>
             <input
-              className="auth__input auth__input-error auth__input-error_active"
+              className="auth__input"
               id="user-password"
+              name="password"
               placeholder="Введите пароль"
               value={values.password || ""}
               type="password"
@@ -63,12 +76,22 @@ function Register({ handleRegister }) {
               required
               onChange={handleChange}
             />
-            <span className="auth__input-error">
-              Что-то пошло не так...
+            <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+              {validatePassword(values.password).message}
             </span>
           </div>
             <div className="auth__buttons">
-              <input type="submit" value="Зарегистрироваться" className="auth__submit"/>
+              <input
+                type="submit"
+                value="Зарегистрироваться"
+                className={`auth__submit ${isValid ? '' : 'auth__submit_disable'}` }
+                disabled={
+                  !isValid ||
+                  validateName(values.name).invalid ||
+                  validateEmail(values.email).invalid ||
+                  validatePassword(values.password).invalid
+                }
+              />
                 <p className="auth__register-text">
                   Уже зарегистированы?  <Link to='/signin' className="auth__link">Войти</Link>
                 </p>

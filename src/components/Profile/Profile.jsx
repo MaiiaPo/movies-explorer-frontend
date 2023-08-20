@@ -3,9 +3,10 @@ import { useForm } from "../../hooks/useForm";
 import {Link, useLocation} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import {validateEmail, validateName} from "../../utils/validation";
 
 function Profile({ handleSignOut, handleUpdateProfile, successUpdate }) {
-  const {values, handleChange, setValues} = useForm({})
+  const {values, handleChange, setValues, isValid} = useForm({})
   const currentUser = useContext(CurrentUserContext);
   const location = useLocation();
 
@@ -45,8 +46,10 @@ function Profile({ handleSignOut, handleUpdateProfile, successUpdate }) {
             required
             onChange={handleChange}
           />
+          <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+            {validateName(values.name).message}
+          </span>
         </div>
-
         <div className="profile__input-field">
           <label className="profile__label" htmlFor="user-email">
             E-mail
@@ -64,6 +67,9 @@ function Profile({ handleSignOut, handleUpdateProfile, successUpdate }) {
             required
             onChange={handleChange}
           />
+          <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+            {validateEmail(values.email).message}
+          </span>
         </div>
       </form>
       <div className="profile__buttons">
@@ -71,6 +77,11 @@ function Profile({ handleSignOut, handleUpdateProfile, successUpdate }) {
           <button
             className="profile__button"
             type="button"
+            disabled={
+              !isValid ||
+              validateEmail(values.email).invalid ||
+              validateName(values.name).invalid
+            }
             onClick={updateProfile}
           >
             Сохранить

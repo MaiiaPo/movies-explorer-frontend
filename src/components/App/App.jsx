@@ -50,7 +50,7 @@ function App() {
     auth.authorize(email, password).then((data) => {
       localStorage.setItem('jwt', data.token);
       setLoggedIn(true);
-      navigate('/');
+      navigate('/movies');
     })
       .catch(err => {
         console.error(err)
@@ -177,7 +177,7 @@ return (
         <main className="main">
           <Routes>
             <Route path="/signin" element={<Login handleLogin={handleLogin} />} />
-            <Route path="/signup" element={<Register handleRegister={handleRegister} />} />
+            <Route path="/signup" element={<Register handleRegister={handleRegister} loggedIn={loggedIn} />} />
             <Route path="/" element={<Main handleRegister={handleRegister} />}/>
             <Route path="*" element={<NotFound />} />
 

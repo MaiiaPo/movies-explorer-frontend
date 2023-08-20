@@ -65,6 +65,7 @@
   font-weight: 400;
   line-height: normal;
   padding-bottom: 16px;
+  cursor: pointer;
 }
 
 .profile__button_color {

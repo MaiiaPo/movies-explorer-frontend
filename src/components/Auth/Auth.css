@@ -55,7 +55,12 @@
   border-radius: 3px;
   border: none;
   font-size: 12px;
-  margin-top: 26px
+  margin-top: 26px;
+  cursor: pointer;
+}
+
+.auth__submit_disable {
+  background-color: #A0A0A0;
 }
 
 .auth__buttons {
@@ -100,6 +105,10 @@
 
 .auth__input-error_active {
   display: block;
+  color: #FF4062;
+}
+
+.auth__input_error {
   color: #FF4062;
 }
 

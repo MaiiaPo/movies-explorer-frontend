@@ -1,9 +1,10 @@
 import Auth from "../Auth/Auth";
 import { useForm } from "../../hooks/useForm";
 import {Link} from "react-router-dom";
+import {validateEmail, validatePassword} from "../../utils/validation";
 
 function Login( { handleLogin } ) {
-  const {values, handleChange} = useForm({});
+  const {values, handleChange, isValid} = useForm({});
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -42,8 +43,8 @@ function Login( { handleLogin } ) {
               required
               onChange={handleChange}
             />
-            <span className="auth__input-error">
-              Что-то пошло не так...
+            <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+              {validateEmail(values.email).message}
             </span>
             <label className="auth__label" htmlFor="user-password">
               Пароль
@@ -60,12 +61,21 @@ function Login( { handleLogin } ) {
               required
               onChange={handleChange}
             />
-            <span className="auth__input-error">
-              Что-то пошло не так...
+            <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+              {validatePassword(values.password).message}
             </span>
           </div>
             <div className="auth__buttons">
-              <input type="submit" value="Войти" className="auth__submit"/>
+              <input
+                type="submit"
+                value="Войти"
+                className={`auth__submit ${isValid ? '' : 'auth__submit_disable'}` }
+                disabled={
+                  !isValid ||
+                  validateEmail(values.email).invalid ||
+                  validatePassword(values.password).invalid
+                }
+              />
                 <p className="auth__register-text">
                   Ещё не зарегистрированы?  <Link to='/signup' className="auth__link">Регистрация</Link>
                 </p>

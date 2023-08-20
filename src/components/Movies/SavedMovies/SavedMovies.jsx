@@ -43,7 +43,6 @@ function SavedMovies({ savedMovies, onDeleteMovie }) {
       localStorage.setItem('searchedSavedMovies', JSON.stringify(filtered));
     } else if (!query.isShortFilm) {
       filtered = savedMovies.filter((m) => {
-        console.log('query.searchText', query.searchText)
         return query.searchText
           ? m.nameRU.toLowerCase().trim().includes(query.searchText.toLowerCase())
           : m.nameRU.trim().includes(query.searchText);
