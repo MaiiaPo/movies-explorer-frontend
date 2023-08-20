@@ -1,6 +1,7 @@
 .preloader {
   display: block;
   position: relative;
+  top: 40px;
   width: 150px;
   height: 150px;
   margin: 30px auto;
