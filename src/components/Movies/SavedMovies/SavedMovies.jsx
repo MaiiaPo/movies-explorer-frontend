@@ -63,21 +63,23 @@ function SavedMovies({ savedMovies, onDeleteMovie }) {
           />
         </div>
       </div>
-      {!savedMovies.length &&
-        <div className="movies__empty">
-          <p className="movies__empty-text">Ещё нет сохранённых фильмов</p>
-        </div>
-      }
-      {filteredMovies.length > 0 ? (
-        <MoviesCardList
-          movies={filteredMovies}
-          savedMovies={savedMovies}
-          onDeleteMovie={onDeleteMovie}
-        />
-      ) : (
-        <div className="movies__empty-text movies__empty-text_padding">
-          По вашему запросу ничего не найдено
-        </div>
+      {savedMovies.length === 0 ?
+        (
+          <div className="movies__empty">
+            <p className="movies__empty-text">Ещё нет сохранённых фильмов</p>
+          </div>
+        ) : (
+          savedMovies.length && filteredMovies.length > 0 ? (
+            <MoviesCardList
+              movies={filteredMovies}
+              savedMovies={savedMovies}
+              onDeleteMovie={onDeleteMovie}
+            />
+          ) : (
+            <div className="movies__empty-text movies__empty-text_padding">
+              По вашему запросу ничего не найдено
+            </div>
+          )
         )
       }
     </main>

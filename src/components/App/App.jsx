@@ -77,7 +77,7 @@ function App() {
   }
 
   function handleSignOut() {
-    localStorage.removeItem('jwt');
+    localStorage.clear();
     setLoggedIn(false);
     navigate('/', { replace: true });
   }

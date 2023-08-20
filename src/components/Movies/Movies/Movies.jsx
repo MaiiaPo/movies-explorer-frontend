@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 import Preloader from "../../Preloader/Preloader";
 
 function Movies({ movies, savedMovies, onSaveMovie, onDeleteMovie }) {
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState(movies);
   const [searchQuery, setSearchQuery] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -30,6 +30,7 @@ function Movies({ movies, savedMovies, onSaveMovie, onDeleteMovie }) {
     }
 
     let filtered = [];
+    query.searchText = query.searchText ? query.searchText : '';
     setLoading(true);
     localStorage.setItem('searchQuery', JSON.stringify(query));
 
