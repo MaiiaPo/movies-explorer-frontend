@@ -38,7 +38,7 @@ function App() {
   function handleRegister ({ username, email, password }) {
     auth.register(username, email, password)
       .then(() => {
-        navigate('/signin', {replace: true});
+        navigate('/movies', {replace: true});
         console.log('регистрация успешна')
       })
       .catch((e) => {
