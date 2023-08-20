@@ -18,6 +18,17 @@ function MoviesCard({ movie, savedMovies, onSaveMovie, onDeleteMovie }) {
 
   const imageUrl = movie.image.url ? `${BEATFILM}${movie.image.url}` : movie.image;
 
+  function getDuration(min) {
+    const hours = Math.floor(min / 60);
+    const minutes = min % 60;
+
+    if (hours === 0) {
+      return `${minutes > 0 ? ` ${minutes}м` : ''}`;
+    } else {
+      return `${hours}ч${minutes > 0 ? ` ${minutes}м` : ''}`;
+    }
+  }
+
   return (
     <div className="card">
       <div className="card__block">
@@ -62,7 +73,7 @@ function MoviesCard({ movie, savedMovies, onSaveMovie, onDeleteMovie }) {
           </div>
         </div>
       </div>
-      <p className="card__duration">{movie.duration}</p>
+      <p className="card__duration">{getDuration(movie.duration)}</p>
     </div>
 
   )
