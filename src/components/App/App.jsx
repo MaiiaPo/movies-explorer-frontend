@@ -18,6 +18,7 @@ import Footer from "../сommon/Footer/Footer";
 import ProtectedRouteElement from "../сommon/ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import {moviesApi} from "../../utils/moviesApi";
+import InfoTooltip from "../сommon/InfoTooltip/InfoTooltip";
 
 function App() {
   const location = useLocation();
@@ -35,13 +36,20 @@ function App() {
   const [movies, setMovies] = useState(null);
   const [savedMovies, setSavedMovies] = useState([]);
 
+  const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
+  const [isSuccessAuth, setIsSuccessAuth] = useState(false);
+
   function handleRegister (values) {
     auth.register(values.name, values.email, values.password)
       .then(() => {
+        setIsInfoTooltipOpen(true);
+        setIsSuccessAuth(true);
         handleLogin(values);
         console.log('регистрация успешна')
       })
       .catch((e) => {
+        setIsInfoTooltipOpen(true);
+        setIsSuccessAuth(false);
         console.error(e)
       });
   }
@@ -53,6 +61,8 @@ function App() {
       navigate('/movies');
     })
       .catch(err => {
+        setIsInfoTooltipOpen(true);
+        setIsSuccessAuth(false)
         console.error(err)
       });
   }
@@ -157,6 +167,9 @@ function App() {
     }).catch((error) => {console.error(error)})
   }
 
+  function closeAllPopups() {
+    setIsInfoTooltipOpen(false);
+  }
 
 return (
     <div className="App">
@@ -207,6 +220,11 @@ return (
         {pathFooter.includes(location.pathname) && (
           <Footer />
         )}
+        <InfoTooltip
+          isOpen={isInfoTooltipOpen}
+          onClose={closeAllPopups}
+          isSuccess={isSuccessAuth}
+        />
       </CurrentUserContext.Provider>
     </div>
   );
