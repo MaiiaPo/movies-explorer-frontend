@@ -13,6 +13,7 @@ function Profile({ handleSignOut, handleUpdateProfile, successUpdate }) {
   const [isSave, setIsSave] = useState(false);
 
   useEffect(() => {
+    console.log(currentUser)
     if (currentUser && location.pathname === '/profile') {
       setValues({name: currentUser.name, email: currentUser.email});
     }

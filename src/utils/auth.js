@@ -8,13 +8,13 @@ class Api {
     return Promise.reject(`Ошибка ${res.status}`);
   }
 
-  register = (username, email, password) => {
+  register = (name, email, password) => {
     return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({username, email, password})
+      body: JSON.stringify({name, email, password})
     })
       .then((res) => this._checkResponse(res))
   };

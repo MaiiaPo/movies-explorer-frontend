@@ -35,10 +35,10 @@ function App() {
   const [movies, setMovies] = useState(null);
   const [savedMovies, setSavedMovies] = useState([]);
 
-  function handleRegister ({ username, email, password }) {
-    auth.register(username, email, password)
+  function handleRegister (values) {
+    auth.register(values.name, values.email, values.password)
       .then(() => {
-        handleLogin({email, password});
+        handleLogin(values);
         console.log('регистрация успешна')
       })
       .catch((e) => {
@@ -46,8 +46,8 @@ function App() {
       });
   }
 
-  function handleLogin ({ email, password }) {
-    auth.authorize(email, password).then((data) => {
+  function handleLogin (values) {
+    auth.authorize(values.email, values.password).then((data) => {
       localStorage.setItem('jwt', data.token);
       setLoggedIn(true);
       navigate('/movies');
@@ -96,7 +96,7 @@ function App() {
               setMovies(movies);
             })
             .catch((error) => {
-              console.log(error);
+              console.error(error);
             });
         }
 
@@ -105,7 +105,7 @@ function App() {
             setSavedMovies(data);
             localStorage.setItem('savedMovies', JSON.stringify(data));
           })
-          .catch((error) => console.log(error));
+          .catch((error) => console.error(error));
 
         api.getUserData()
           .then((userData) => {
@@ -139,7 +139,7 @@ function App() {
       api.saveMovie(movie).then((res) => {
         setSavedMovies([...savedMovies, res]);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   }
 
   function handleDeleteMovie(movieId) {
@@ -148,7 +148,6 @@ function App() {
         const updatedSavedMovies = savedMovies.filter(
           (movie) => movie._id !== movieId
         );
-        console.log('updatedSavedMovies', updatedSavedMovies);
         setSavedMovies(updatedSavedMovies);
       })
       .catch((error) => {console.error(error)})

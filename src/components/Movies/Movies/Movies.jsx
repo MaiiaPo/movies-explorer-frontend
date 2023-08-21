@@ -75,7 +75,7 @@ function Movies({ movies, savedMovies, onSaveMovie, onDeleteMovie }) {
       </div>
       {loading === true
         ? (<Preloader />)
-        : (filteredMovies.length > 0 ? (
+        : (filteredMovies && filteredMovies.length > 0 ? (
             <MoviesCardList
               movies={filteredMovies}
               savedMovies={savedMovies}
