@@ -5,29 +5,15 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import {useEffect, useState} from "react";
 
 function SavedMovies({ savedMovies, onDeleteMovie }) {
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState(savedMovies);
   const [searchQuery, setSearchQuery] = useState({});
 
-  const searchedMovies = localStorage.getItem('searchedSavedMovies');
-  const queries = localStorage.getItem('searchQuerySavedMovies');
-
   useEffect(() => {
-    if (searchedMovies) {
-      setFilteredMovies(JSON.parse(searchedMovies));
-    } else {
-      setFilteredMovies(savedMovies);
-    }
-  }, [searchedMovies, savedMovies, searchQuery]);
-
-  useEffect(() => {
-    if (queries) {
-      setSearchQuery(JSON.parse(queries));
-    }
-  }, [queries]);
+    setFilteredMovies(savedMovies);
+  }, [savedMovies])
 
   const filterMovies = (query) => {
     let filtered = [];
-    localStorage.setItem('searchQuerySavedMovies', JSON.stringify(query));
     query.searchText = query.searchText ? query.searchText : '';
 
     if (query.isShortFilm) {
@@ -40,7 +26,6 @@ function SavedMovies({ savedMovies, onDeleteMovie }) {
       });
 
       setFilteredMovies(filtered);
-      localStorage.setItem('searchedSavedMovies', JSON.stringify(filtered));
     } else if (!query.isShortFilm) {
       filtered = savedMovies.filter((m) => {
         return query.searchText
@@ -49,7 +34,6 @@ function SavedMovies({ savedMovies, onDeleteMovie }) {
       });
 
       setFilteredMovies(filtered);
-      localStorage.setItem('searchedSavedMovies', JSON.stringify(filtered));
     }
   };
 

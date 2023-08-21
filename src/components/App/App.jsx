@@ -143,22 +143,13 @@ function App() {
   }
 
   function handleDeleteMovie(movieId) {
-    const searchedSavedMovies = JSON.parse(localStorage.getItem('searchedSavedMovies'));
-
     api.deleteMovie(movieId)
       .then(() => {
         const updatedSavedMovies = savedMovies.filter(
           (movie) => movie._id !== movieId
         );
+        console.log('updatedSavedMovies', updatedSavedMovies);
         setSavedMovies(updatedSavedMovies);
-
-        if (searchedSavedMovies) {
-          const updatedSearchedSavedMovies = searchedSavedMovies.filter(
-            (movie) => movie._id !== movieId
-          );
-
-          localStorage.setItem('searchedSavedMovies', JSON.stringify(updatedSearchedSavedMovies));
-        }
       })
       .catch((error) => {console.error(error)})
 
