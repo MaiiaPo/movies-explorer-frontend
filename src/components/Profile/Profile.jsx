@@ -18,6 +18,10 @@ function Profile({ handleSignOut, handleUpdateProfile }) {
     }
   }, [currentUser, location.pathname]);
 
+  function isNewData() {
+    return currentUser.name !== values.name || currentUser.email !== values.email;
+  }
+
   function updateProfile() {
     handleUpdateProfile({
       name: values.name,
@@ -78,6 +82,7 @@ function Profile({ handleSignOut, handleUpdateProfile }) {
             className="profile__button"
             type="button"
             disabled={
+              !isNewData() ||
               !isValid ||
               validateEmail(values.email).invalid ||
               validateName(values.name).invalid
