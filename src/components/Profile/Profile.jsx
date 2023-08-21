@@ -5,7 +5,7 @@ import {useContext, useEffect, useState} from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import {validateEmail, validateName} from "../../utils/validation";
 
-function Profile({ handleSignOut, handleUpdateProfile, successUpdate }) {
+function Profile({ handleSignOut, handleUpdateProfile }) {
   const {values, handleChange, setValues, isValid} = useForm({})
   const currentUser = useContext(CurrentUserContext);
   const location = useLocation();
@@ -13,7 +13,6 @@ function Profile({ handleSignOut, handleUpdateProfile, successUpdate }) {
   const [isSave, setIsSave] = useState(false);
 
   useEffect(() => {
-    console.log(currentUser)
     if (currentUser && location.pathname === '/profile') {
       setValues({name: currentUser.name, email: currentUser.email});
     }
@@ -47,7 +46,7 @@ function Profile({ handleSignOut, handleUpdateProfile, successUpdate }) {
             required
             onChange={handleChange}
           />
-          <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+          <span className={`auth__input-error ${validateName(values.name).invalid ? 'auth__input-error_active' : ''}`}>
             {validateName(values.name).message}
           </span>
         </div>
@@ -68,7 +67,7 @@ function Profile({ handleSignOut, handleUpdateProfile, successUpdate }) {
             required
             onChange={handleChange}
           />
-          <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+          <span className={`auth__input-error ${validateEmail(values.email).invalid ? 'auth__input-error_active' : ''}`}>
             {validateEmail(values.email).message}
           </span>
         </div>

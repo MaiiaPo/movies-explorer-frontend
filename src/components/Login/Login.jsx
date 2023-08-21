@@ -43,7 +43,7 @@ function Login( { handleLogin } ) {
               required
               onChange={handleChange}
             />
-            <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+            <span className={`auth__input-error ${validateEmail(values.email).invalid ? 'auth__input-error_active' : ''}`}>
               {validateEmail(values.email).message}
             </span>
             <label className="auth__label" htmlFor="user-password">
@@ -61,7 +61,7 @@ function Login( { handleLogin } ) {
               required
               onChange={handleChange}
             />
-            <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+            <span className={`auth__input-error ${validatePassword(values.password).invalid ? 'auth__input-error_active' : ''}`}>
               {validatePassword(values.password).message}
             </span>
           </div>
@@ -69,7 +69,12 @@ function Login( { handleLogin } ) {
               <input
                 type="submit"
                 value="Войти"
-                className={`auth__submit ${isValid ? '' : 'auth__submit_disable'}` }
+                className={`auth__submit 
+                ${!isValid
+                || validateEmail(values.email).invalid
+                || validatePassword(values.password).invalid
+                  ? 'auth__submit_disable' : ''
+                }` }
                 disabled={
                   !isValid ||
                   validateEmail(values.email).invalid ||

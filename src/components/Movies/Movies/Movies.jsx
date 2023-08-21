@@ -29,7 +29,7 @@ function Movies({ movies, savedMovies, onSaveMovie, onDeleteMovie }) {
       setLoading(true);
     }
 
-    let filtered = [];
+    let filtered = movies;
     query.searchText = query.searchText ? query.searchText : '';
     setLoading(true);
     localStorage.setItem('searchQuery', JSON.stringify(query));

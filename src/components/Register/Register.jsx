@@ -40,7 +40,7 @@ function Register({ handleRegister, loggedIn }) {
               required
               onChange={handleChange}
             />
-            <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+            <span className={`auth__input-error ${validateName(values.name).invalid ? 'auth__input-error_active' : ''}`}>
               {validateName(values.name).message}
             </span>
             <label className="auth__label" htmlFor="user-email">
@@ -58,7 +58,7 @@ function Register({ handleRegister, loggedIn }) {
               required
               onChange={handleChange}
             />
-            <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+            <span className={`auth__input-error ${validateEmail(values.email).invalid ? 'auth__input-error_active' : ''}`}>
               {validateEmail(values.email).message}
             </span>
             <label className="auth__label" htmlFor="user-password">
@@ -76,7 +76,7 @@ function Register({ handleRegister, loggedIn }) {
               required
               onChange={handleChange}
             />
-            <span className={`auth__input-error ${isValid ? '' : 'auth__input-error_active'}`}>
+            <span className={`auth__input-error ${validatePassword(values.password).invalid ? 'auth__input-error_active' : ''}`}>
               {validatePassword(values.password).message}
             </span>
           </div>
@@ -84,7 +84,13 @@ function Register({ handleRegister, loggedIn }) {
               <input
                 type="submit"
                 value="Зарегистрироваться"
-                className={`auth__submit ${isValid ? '' : 'auth__submit_disable'}` }
+                className={`auth__submit 
+                ${!isValid 
+                  || validateName(values.name).invalid
+                  || validateEmail(values.email).invalid
+                  || validatePassword(values.password).invalid
+                  ? 'auth__submit_disable' : ''
+                }` }
                 disabled={
                   !isValid ||
                   validateName(values.name).invalid ||
