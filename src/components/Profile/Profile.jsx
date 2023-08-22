@@ -11,10 +11,13 @@ function Profile({ handleSignOut, handleUpdateProfile }) {
   const location = useLocation();
 
   const [isSave, setIsSave] = useState(false);
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
+    console.log(currentUser)
     if (currentUser && location.pathname === '/profile') {
       setValues({name: currentUser.name, email: currentUser.email});
+      setUserName(currentUser.name);
     }
   }, [currentUser, location.pathname]);
 
@@ -31,7 +34,7 @@ function Profile({ handleSignOut, handleUpdateProfile }) {
 
   return (
     <section className="profile">
-      <h1 className="profile__title">Привет, {currentUser.name}!</h1>
+      <h1 className="profile__title">Привет, {userName}!</h1>
       <form className="profile__form">
         <div className="profile__input-field profile__input-field_border profile_input-field_name">
           <label className="profile__label" htmlFor="user-name">

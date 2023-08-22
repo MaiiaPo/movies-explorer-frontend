@@ -78,7 +78,7 @@ function App() {
       auth.getToken(jwt).then((res) => {
         if (res){
           setLoggedIn(true);
-          navigate("/", {replace: true})
+          navigate(location.pathname);
         }
       })
         .catch((err) => console.error(err));
@@ -95,8 +95,6 @@ function App() {
     const jwt = localStorage.getItem('jwt');
     if (jwt){
       if (loggedIn) {
-
-
         api.getSavedMovies()
           .then((data) => {
             setSavedMovies(data);
