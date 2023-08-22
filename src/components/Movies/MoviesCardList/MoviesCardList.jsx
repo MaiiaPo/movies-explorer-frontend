@@ -10,7 +10,7 @@ const MoviesCardList = ( { movies, savedMovies, onSaveMovie, onDeleteMovie } ) =
   const [moviesMore, setMoviesMore] = useState(0);
 
   const moviesCount = useMemo(() => {
-    const count = width < 768 ? 5 : width < 1280 ? 8 : 12;
+    const count = width < 768 ? 5 : width >= 1280 ? 16 : 8;
     return movies.slice(0, count + moviesMore);
   }, [movies, width, moviesMore]);
 
@@ -19,7 +19,7 @@ const MoviesCardList = ( { movies, savedMovies, onSaveMovie, onDeleteMovie } ) =
   }, [movies]);
 
   function addMovies() {
-    setMoviesMore((prev) => prev + (width >= 1280 ? 8 : 3));
+    setMoviesMore((prev) => prev + (width >= 1280 ? 4 : 2));
   }
 
   return (
