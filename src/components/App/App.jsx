@@ -33,7 +33,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [successUpdateUser, setSuccessUpdateUser] = useState(false);
 
-  const [movies, setMovies] = useState(null);
   const [savedMovies, setSavedMovies] = useState([]);
 
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
@@ -96,19 +95,7 @@ function App() {
     const jwt = localStorage.getItem('jwt');
     if (jwt){
       if (loggedIn) {
-        if (localStorage.getItem('movies')) {
-          setMovies(JSON.parse(localStorage.getItem('movies')));
-        } else {
-          moviesApi
-            .getMovies()
-            .then((movies) => {
-              localStorage.setItem('movies', JSON.stringify(movies));
-              setMovies(movies);
-            })
-            .catch((error) => {
-              console.error(error);
-            });
-        }
+
 
         api.getSavedMovies()
           .then((data) => {
@@ -188,7 +175,6 @@ return (
               <ProtectedRouteElement
                 element={Movies}
                 loggedIn={loggedIn}
-                movies={movies}
                 savedMovies={savedMovies}
                 onSaveMovie={handleSaveMovie}
                 onDeleteMovie={handleDeleteMovie}
