@@ -34,7 +34,7 @@ function Movies({ savedMovies, onSaveMovie, onDeleteMovie }) {
       setLoading(true);
       if (localStorage.getItem('movies')) {
         setMovies(JSON.parse(localStorage.getItem('movies')));
-        filtered = movies;
+        filtered = JSON.parse(localStorage.getItem('movies'));
         setLoading(false);
       } else {
         await moviesApi.getMovies()
@@ -57,6 +57,7 @@ function Movies({ savedMovies, onSaveMovie, onDeleteMovie }) {
     }
 
     localStorage.setItem('searchQuery', JSON.stringify(query));
+
     if (filtered && filtered.length > 0) {
       if (query.isShortFilm) {
         filtered = filtered.filter((m) => {
@@ -80,8 +81,7 @@ function Movies({ savedMovies, onSaveMovie, onDeleteMovie }) {
         localStorage.setItem('searchedMovies', JSON.stringify(filtered));
       }
     }
-  };
-
+  }
 
   return (
     <main className="movies">

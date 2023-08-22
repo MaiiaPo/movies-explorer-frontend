@@ -12,6 +12,12 @@ function SearchForm({ onFilters, searchQuery }) {
     }
   }, [searchQuery.searchText]);
 
+  useEffect(() => {
+    if (searchQuery.isShortFilm) {
+      setIsShortFilm(searchQuery.isShortFilm);
+    }
+  }, [searchQuery.isShortFilm]);
+
   const getFilterShortFilm = () => {
     if (searchText !== '') {
       setIsShortFilm(!isShortFilm);
