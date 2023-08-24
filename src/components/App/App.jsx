@@ -117,7 +117,6 @@ function App() {
     loggedIn && localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
   }, [savedMovies, loggedIn]);
 
-
   function handleUpdateProfile(userData) {
     api.updateUserData(userData).then((currentUser) => {
       setCurrentUser(currentUser);
@@ -141,18 +140,25 @@ function App() {
   }
 
   function handleDeleteMovie(movieId) {
+    const savedMoviesLocal = JSON.parse(localStorage.getItem('savedMovies'));
+
     api.deleteMovie(movieId)
       .then(() => {
         const updatedSavedMovies = savedMovies.filter(
-          (movie) => movie._id !== movieId
+          (movie) => {
+            return movie._id !== movieId;
+          }
         );
         setSavedMovies(updatedSavedMovies);
+
+        if (savedMoviesLocal) {
+          const updatedSavedMoviesLocal = savedMoviesLocal.filter(
+            (movie) => movie._id !== movieId
+          );
+          localStorage.setItem('savedMovies', JSON.stringify(updatedSavedMoviesLocal));
+        }
       })
       .catch((error) => {console.error(error)})
-
-    api.getSavedMovies().then((data) => {
-      setSavedMovies(data);
-    }).catch((error) => {console.error(error)})
   }
 
   function closeAllPopups() {
