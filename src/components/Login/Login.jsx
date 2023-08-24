@@ -1,10 +1,18 @@
 import Auth from "../Auth/Auth";
 import { useForm } from "../../hooks/useForm";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {validateEmail, validatePassword} from "../../utils/validation";
+import {useEffect} from "react";
 
-function Login( { handleLogin } ) {
+function Login( { handleLogin, loggedIn } ) {
+  const navigate = useNavigate();
   const {values, handleChange, isValid} = useForm({});
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate('/movies');
+    }
+  }, [loggedIn]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
