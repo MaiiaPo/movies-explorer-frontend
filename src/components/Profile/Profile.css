@@ -77,6 +77,12 @@
   cursor: auto;
 }
 
+.profile__success {
+  padding-bottom: 40px;
+  color: #a0a0a0;
+  font-size: 14px;
+}
+
 @media screen and (min-width: 768px) {
   .profile__title {
     align-self: end;

@@ -17,7 +17,6 @@ import Footer from "../сommon/Footer/Footer";
 
 import ProtectedRouteElement from "../сommon/ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import {moviesApi} from "../../utils/moviesApi";
 import InfoTooltip from "../сommon/InfoTooltip/InfoTooltip";
 
 function App() {
@@ -122,10 +121,11 @@ function App() {
   function handleUpdateProfile(userData) {
     api.updateUserData(userData).then((currentUser) => {
       setCurrentUser(currentUser);
-      setSuccessUpdateUser(true)
+      setSuccessUpdateUser(true);
+      console.log('успешно')
     })
       .catch((err) => {
-        setSuccessUpdateUser(false)
+        setSuccessUpdateUser(false);
         console.error(err);
       })
   }
@@ -195,7 +195,7 @@ return (
                 loggedIn={loggedIn}
                 handleSignOut={handleSignOut}
                 handleUpdateProfile={handleUpdateProfile}
-                successUpdate={successUpdateUser}
+                successUpdateUser={successUpdateUser}
               />
             }
             />

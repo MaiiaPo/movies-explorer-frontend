@@ -5,27 +5,40 @@ import {useContext, useEffect, useState} from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import {validateEmail, validateName} from "../../utils/validation";
 
-function Profile({ handleSignOut, handleUpdateProfile }) {
+function Profile({ handleSignOut, handleUpdateProfile, successUpdateUser }) {
   const {values, handleChange, setValues, isValid} = useForm({})
   const currentUser = useContext(CurrentUserContext);
   const location = useLocation();
 
   const [isSave, setIsSave] = useState(false);
   const [userName, setUserName] = useState('');
+  const [showSuccessMsg, setShowSuccessMsg] = useState(false);
+  const [isSaveUpdate, setIsSaveUpdate] = useState(false);
 
   useEffect(() => {
-    console.log(currentUser)
     if (currentUser && location.pathname === '/profile') {
       setValues({name: currentUser.name, email: currentUser.email});
       setUserName(currentUser.name);
     }
   }, [currentUser, location.pathname]);
 
+  useEffect(() => {
+    successUpdateUser = false;
+  }, []);
+
+  useEffect(() => {
+    if (successUpdateUser) {
+      setShowSuccessMsg(true);
+      setIsSave(false);
+    }
+  }, [successUpdateUser, isSaveUpdate]);
+
   function isNewData() {
     return currentUser.name !== values.name || currentUser.email !== values.email;
   }
 
   function updateProfile() {
+    setIsSaveUpdate(!isSaveUpdate);
     handleUpdateProfile({
       name: values.name,
       email: values.email,
@@ -79,6 +92,11 @@ function Profile({ handleSignOut, handleUpdateProfile }) {
           </span>
         </div>
       </form>
+      {showSuccessMsg && (
+        <span key={successUpdateUser} className="profile__success">
+          Данные успешно обновлены!
+        </span>
+      )}
       <div className="profile__buttons">
         {isSave ? (
           <button
@@ -101,6 +119,7 @@ function Profile({ handleSignOut, handleUpdateProfile }) {
             onClick={(e) => {
               e.preventDefault();
               setIsSave(true);
+              setShowSuccessMsg(false);
             }}
           >
             Редактировать
