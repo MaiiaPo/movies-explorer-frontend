@@ -122,7 +122,6 @@ function App() {
     api.updateUserData(userData).then((currentUser) => {
       setCurrentUser(currentUser);
       setSuccessUpdateUser(true);
-      console.log('успешно')
     })
       .catch((err) => {
         setSuccessUpdateUser(false);
@@ -130,14 +129,20 @@ function App() {
       })
   }
 
-  function handleSaveMovie(movie) {
+  function handleSaveMovie(movie, isSaved, movieWithId) {
+    console.log('handleSaveMovie', movieWithId)
+    if (!isSaved) {
       api.saveMovie(movie).then((res) => {
         setSavedMovies([...savedMovies, res]);
       })
-      .catch((error) => console.error(error));
+        .catch((error) => console.error(error));
+    } else {
+      handleDeleteMovie(movieWithId._id);
+    }
   }
 
   function handleDeleteMovie(movieId) {
+    console.log('handleDeleteMovie', movieId)
     api.deleteMovie(movieId)
       .then(() => {
         const updatedSavedMovies = savedMovies.filter(

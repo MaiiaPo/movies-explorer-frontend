@@ -10,6 +10,9 @@ function MoviesCard({ movie, savedMovies, onSaveMovie, onDeleteMovie }) {
   const isSaveMoviesPage = location.pathname === '/saved-movies'
   const movieWithId =  savedMovies ? savedMovies.find(m => m.movieId === movie.id) : '';
 
+  const isLikeButton = location.pathname === '/movies';
+  const isDeleteButton = location.pathname === '/saved-movies';
+
   const isSaved = savedMovies
     ? isSaveMoviesPage
       ? savedMovies.some((i) => i.movieId === movie.movieId)
@@ -43,7 +46,7 @@ function MoviesCard({ movie, savedMovies, onSaveMovie, onDeleteMovie }) {
         <div className="card__info">
           <h2 className="card__name">{movie.nameRU}</h2>
           <div className="card__like">
-            {isSaved && isSaveMoviesPage &&
+            {isDeleteButton &&
               <button
                 type="button"
                 className="card__like-button"
@@ -52,22 +55,17 @@ function MoviesCard({ movie, savedMovies, onSaveMovie, onDeleteMovie }) {
                 <img className="card__like-icon" src={Dislike} alt="Иконка удаления фильма из списка"/>
               </button>
             }
-            {isSaved && !isSaveMoviesPage &&
+            {isLikeButton &&
               <button
                 type="button"
                 className="card__like-button"
-                onClick={() => onDeleteMovie(movieWithId._id)}
+                onClick={() => onSaveMovie(movie, isSaved, movieWithId)}
               >
-                <img className="card__like-icon" src={Like} alt="Иконка лайка"/>
-              </button>
-            }
-            {!isSaved &&
-              <button
-                type="button"
-                className="card__like-button"
-                onClick={() => {onSaveMovie(movie)}}
-              >
-                <img className="card__like-icon" src={NotLike} alt="Иконка отмены лайка"/>
+                {isSaved ? (
+                  <img className="card__like-icon" src={Like} alt="Иконка лайка"/>
+                ) : (
+                  <img className="card__like-icon" src={NotLike} alt="Иконка отмены лайка"/>
+                )}
               </button>
             }
           </div>

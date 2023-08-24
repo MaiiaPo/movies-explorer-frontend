@@ -28,15 +28,17 @@ function Navigation({ loggedIn }) {
           <div className="nav__route">
             <div className="nav__route-links">
               <NavLink
-                className="nav__route-link"
-                activeClassName="nav__route-link_active"
+                className={({ isActive }) =>
+                 isActive ? "nav__route-link active" : "nav__route-link"
+                }
                 to="/movies"
               >
                 Фильмы
               </NavLink>
               <NavLink
-                className="nav__route-link"
-                activeClassName="nav__route-link_active"
+                className={({ isActive }) =>
+                  isActive ? "nav__route-link active" : "nav__route-link"
+                }
                 to="/saved-movies"
               >
                 Сохранённые фильмы
