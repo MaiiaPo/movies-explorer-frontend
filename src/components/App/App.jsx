@@ -167,7 +167,7 @@ return (
             <Route path="/signin" element={<Login handleLogin={handleLogin} loggedIn={loggedIn} />} />
             <Route path="/signup" element={<Register handleRegister={handleRegister} loggedIn={loggedIn} />} />
             <Route path="/" element={<Main handleRegister={handleRegister} />}/>
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFound loggedIn={loggedIn}/>} />
 
             <Route path="/movies" element={
               <ProtectedRouteElement
