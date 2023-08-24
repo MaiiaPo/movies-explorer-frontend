@@ -11,6 +11,7 @@ function Movies({ savedMovies, onSaveMovie, onDeleteMovie }) {
   const [searchQuery, setSearchQuery] = useState({});
   const [loading, setLoading] = useState(false);
   const [isLoadMovie, setIsLoadMovie] = useState(false);
+  const [isFilter, setIsFilter] = useState(false);
 
   const searchedMovies = localStorage.getItem('searchedMovies');
   const queries = localStorage.getItem('searchQuery');
@@ -28,6 +29,7 @@ function Movies({ savedMovies, onSaveMovie, onDeleteMovie }) {
   }, [queries]);
 
   async function filterMovies (query) {
+    setIsFilter(true)
     let filtered = [];
 
     if (!isLoadMovie) {
@@ -103,10 +105,16 @@ function Movies({ savedMovies, onSaveMovie, onDeleteMovie }) {
               onSaveMovie={onSaveMovie}
               onDeleteMovie={onDeleteMovie}
             />
+          ) : (isFilter ? (
+              <div className="movies__empty-text movies__empty-text_padding">
+                По вашему запросу ничего не найдено
+              </div>
           ) : (
-            <div className="movies__empty-text movies__empty-text_padding">
-              По вашему запросу ничего не найдено
-            </div>
+              <div className="movies__empty-text movies__empty-text_padding">
+                Введите поисковый запрос
+              </div>
+            )
+
           )
         )
       }
