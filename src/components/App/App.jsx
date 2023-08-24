@@ -141,7 +141,6 @@ function App() {
   }
 
   function handleDeleteMovie(movieId) {
-    console.log('handleDeleteMovie', movieId)
     api.deleteMovie(movieId)
       .then(() => {
         const updatedSavedMovies = savedMovies.filter(
