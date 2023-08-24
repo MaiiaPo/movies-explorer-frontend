@@ -130,7 +130,6 @@ function App() {
   }
 
   function handleSaveMovie(movie, isSaved, movieWithId) {
-    console.log('handleSaveMovie', movieWithId)
     if (!isSaved) {
       api.saveMovie(movie).then((res) => {
         setSavedMovies([...savedMovies, res]);
