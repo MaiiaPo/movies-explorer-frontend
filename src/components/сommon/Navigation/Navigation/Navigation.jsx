@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navigation.css';
-import { Link } from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import Menu from '../../../../images/menu.svg';
 import ButtonProfile from "../../ButtonProfile/ButtonProfile";
 import useWindowDimensions from "../../../../hooks/windowDimensions";
@@ -27,12 +27,20 @@ function Navigation({ loggedIn }) {
         ) : (
           <div className="nav__route">
             <div className="nav__route-links">
-              <Link className="nav__route-link" to="/movies">
+              <NavLink
+                className="nav__route-link"
+                activeClassName="nav__route-link_active"
+                to="/movies"
+              >
                 Фильмы
-              </Link>
-              <Link className="nav__route-link" to="/saved-movies">
+              </NavLink>
+              <NavLink
+                className="nav__route-link"
+                activeClassName="nav__route-link_active"
+                to="/saved-movies"
+              >
                 Сохранённые фильмы
-              </Link>
+              </NavLink>
             </div>
             <div className="header__button-profile"><ButtonProfile/></div>
           </div>
