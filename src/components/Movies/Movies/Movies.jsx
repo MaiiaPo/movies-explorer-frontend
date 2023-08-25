@@ -1,154 +1,123 @@
 import './Movies.css';
 import SearchForm from "../SearchForm/SearchForm";
-import MoviesCard from "../MoviesCard/MoviesCard";
-import Words from "../../../images/movies/33 слова о дизайне.jpg";
-import Design from "../../../images/movies/Киноальманах 100 лет дизайна.jpg";
-import Bencsi from "../../../images/movies/В погоне за Бенкси.jpg";
-import Baskia from "../../../images/movies/Баския Взрыв реальности.jpg";
-import Run from "../../../images/movies/Бег это свобода.jpg";
-import BooksShopers from "../../../images/movies/Книготорговцы.jpg";
-import ThinkGermany from "../../../images/movies/Когда я думаю о Германии ночью.jpg";
-import Iggy from "../../../images/movies/Gimme Danger История Игги и The Stooges.jpg";
-import useWindowDimensions from "../../../hooks/windowDimensions";
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import {useEffect, useState} from "react";
+import Preloader from "../../Preloader/Preloader";
+import {moviesApi} from "../../../utils/moviesApi";
 
-function Movies() {
-  const { width } = useWindowDimensions();
+function Movies({ savedMovies, onSaveMovie, onDeleteMovie }) {
+  const [movies, setMovies] = useState(null);
+  const [filteredMovies, setFilteredMovies] = useState(null);
+  const [searchQuery, setSearchQuery] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [isLoadMovie, setIsLoadMovie] = useState(false);
+  const [isFilter, setIsFilter] = useState(false);
+
+  const searchedMovies = localStorage.getItem('searchedMovies');
+  const queries = localStorage.getItem('searchQuery');
+
+  useEffect(() => {
+    if (searchedMovies) {
+      setFilteredMovies(JSON.parse(searchedMovies));
+    }
+  }, [searchedMovies]);
+
+  useEffect(() => {
+    if (queries) {
+      setSearchQuery(JSON.parse(queries));
+    }
+  }, [queries]);
+
+  async function filterMovies (query) {
+    setIsFilter(true)
+    let filtered = [];
+
+    if (!isLoadMovie) {
+      setLoading(true);
+      if (localStorage.getItem('movies')) {
+        setMovies(JSON.parse(localStorage.getItem('movies')));
+        filtered = JSON.parse(localStorage.getItem('movies'));
+        setLoading(false);
+      } else {
+        await moviesApi.getMovies()
+          .then((movies) => {
+            localStorage.setItem('movies', JSON.stringify(movies));
+            setMovies(movies);
+            filtered = movies;
+          })
+          .catch((error) => {
+            console.error(error);
+          })
+          .finally(() => setLoading(false));
+      }
+
+      setIsLoadMovie(true);
+    }
+
+    if (movies && movies.length) {
+      filtered = movies;
+    }
+
+    localStorage.setItem('searchQuery', JSON.stringify(query));
+
+    if (filtered && filtered.length > 0) {
+      if (query.isShortFilm) {
+        filtered = filtered.filter((m) => {
+          return (
+            query.searchText
+              ? m.nameRU.toLowerCase().trim().includes(query.searchText.toLowerCase()) && m.duration <= 40
+              : m.duration <= 40
+          );
+        });
+
+        setFilteredMovies(filtered);
+        localStorage.setItem('searchedMovies', JSON.stringify(filtered));
+      } else if (!query.isShortFilm) {
+        filtered = filtered.filter((m) => {
+          return query.searchText
+            ? m.nameRU.toLowerCase().trim().includes(query.searchText.toLowerCase())
+            : m.nameRU.trim().includes(query.searchText);
+        });
+
+        setFilteredMovies(filtered);
+        localStorage.setItem('searchedMovies', JSON.stringify(filtered));
+      }
+    }
+  }
 
   return (
     <main className="movies">
       <div className="movies__filter">
         <div className="movies__search-form-container">
-          <SearchForm />
+          <SearchForm
+            onFilters={filterMovies}
+            searchQuery={searchQuery}
+          />
         </div>
       </div>
-      <ul className="movies__list">
-        <li className="movies__list-item">
-          <MoviesCard
-            name="33 слова о дизайне"
-            image={Words}
-            altImage="Черно-белая фотография девушки с машиной"
-            isLike={true}
-          />
-        </li>
-        <li className="movies__list-item">
-          <MoviesCard
-            name="Киноальманах «100 лет дизайна»"
-            image={Design}
-            altImage="Фотография мужчины в очках"
-          />
-        </li>
-        <li className="movies__list-item">
-          <MoviesCard
-            name="В погоне за Бенкси"
-            image={Bencsi}
-            altImage="Бенкси с гитарой за столом"
-          />
-        </li>
-        <li className="movies__list-item">
-          <MoviesCard
-            name="Баския: Взрыв реальности"
-            image={Baskia}
-            altImage="Девушка в комнате с колоннами"
-          />
-        </li>
-        <li className="movies__list-item">
-          <MoviesCard
-            name="Бег это свобода"
-            image={Run}
-            altImage="Трое людей на скейтах на дороге"
-          />
-        </li>
-        {width >= 768 &&
-          <>
-            <li className="movies__list-item">
-              <MoviesCard
-                name="Книготорговцы"
-                image={BooksShopers}
-                altImage="Мужчина в комнате разбирает коробки с книгами"
-                isLike={true}
-              />
-            </li>
-            <li className="movies__list-item">
-              <MoviesCard
-                name="Когда я думаю о Германии ночью"
-                image={ThinkGermany}
-                altImage="Трое мужчин разговаривают"
-                isLike={true}
-              />
-            </li>
-            <li className="movies__list-item">
-              <MoviesCard
-                name="Gimme Danger: История Игги и The Stooges"
-                image={Iggy}
-                altImage="Стена с граффити"
-              />
-            </li>
-          </>
-          }
-        {width >= 1280 &&
-          <>
-            <li className="movies__list-item">
-              <MoviesCard
-                name="33 слова о дизайне"
-                image={Words}
-                altImage="Черно-белая фотография девушки с машиной"
-                isLike={true}
-              />
-            </li>
-            <li className="movies__list-item">
-              <MoviesCard
-                name="Киноальманах «100 лет дизайна»"
-                image={Design}
-                altImage="Фотография мужчины в очках"
-              />
-            </li>
-            <li className="movies__list-item">
-              <MoviesCard
-                name="В погоне за Бенкси"
-                image={Bencsi}
-                altImage="Бенкси с гитарой за столом"
-              />
-            </li>
-            <li className="movies__list-item">
-              <MoviesCard
-                name="Баския: Взрыв реальности"
-                image={Baskia}
-                altImage="Девушка в комнате с колоннами"
-              />
-            </li>
-            <li className="movies__list-item">
-              <MoviesCard
-                name="33 слова о дизайне"
-                image={Words}
-                altImage="Черно-белая фотография девушки с машиной"
-                isLike={true}
-              />
-            </li>
-            <li className="movies__list-item">
-              <MoviesCard
-                name="Киноальманах «100 лет дизайна»"
-                image={Design}
-                altImage="Фотография мужчины в очках"
-              />
-            </li>
-            <li className="movies__list-item">
-              <MoviesCard
-                name="В погоне за Бенкси"
-                image={Bencsi}
-                altImage="Бенкси с гитарой за столом"
-              />
-            </li>
-            <li className="movies__list-item">
-              <MoviesCard
-                name="Баския: Взрыв реальности"
-                image={Baskia}
-                altImage="Девушка в комнате с колоннами"
-              />
-            </li>
-          </>
-        }
-      </ul>
-      <button className="movies__button-more" type="button">Еще</button>
+      {loading === true
+        ? (<Preloader />)
+        : (filteredMovies && filteredMovies.length > 0 ? (
+            <MoviesCardList
+              movies={filteredMovies}
+              savedMovies={savedMovies}
+              searchQuery={searchQuery}
+              onSaveMovie={onSaveMovie}
+              onDeleteMovie={onDeleteMovie}
+            />
+          ) : (isFilter ? (
+              <div className="movies__empty-text movies__empty-text_padding">
+                По вашему запросу ничего не найдено
+              </div>
+          ) : (
+              <div className="movies__empty-text movies__empty-text_padding">
+                Введите поисковый запрос
+              </div>
+            )
+
+          )
+        )
+      }
     </main>
   )
 }

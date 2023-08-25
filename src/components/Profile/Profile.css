@@ -45,6 +45,7 @@
   line-height: normal;
   text-align: right;
   padding-bottom: 16px;
+  background-color: transparent;
 }
 
 .profile__input-field_border {
@@ -64,10 +65,22 @@
   font-weight: 400;
   line-height: normal;
   padding-bottom: 16px;
+  cursor: pointer;
 }
 
 .profile__button_color {
   color: #FF4062;
+}
+
+.profile__button:disabled,
+.profile__button[disabled]{
+  cursor: auto;
+}
+
+.profile__success {
+  padding-bottom: 40px;
+  color: #a0a0a0;
+  font-size: 14px;
 }
 
 @media screen and (min-width: 768px) {

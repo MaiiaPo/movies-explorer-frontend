@@ -62,6 +62,10 @@
   text-decoration: none;
 }
 
+.nav__route-link.active {
+  color: #F3C1F8;
+}
+
 @media screen and (min-width: 768px) {
   .nav__auth {
     gap: 30px;
